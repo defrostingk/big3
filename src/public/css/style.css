@@ -1,0 +1,6 @@
+/* Config */
+@import url('./config/_reset.css');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
