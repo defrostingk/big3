@@ -1,4 +1,14 @@
 extends base.pug
 
 block content
-  span login
+  .title
+    h1 삼대몇?
+    h3 운동 기록 웹 애플리케이션
+
+  .login
+    input(type='text', placeholder='Id', required)
+    input(type='password', placeholder='Password', required)
+    button Login
+    button Join
+
+    include partials/footer
