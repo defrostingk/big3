@@ -1,8 +1,21 @@
 {
-  "type": "module",
+  "name": "big3",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defrostingk/big3.git"
+  },
+  "keywords": [],
+  "author": "defrostingk",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon -e js,pug,css"
   },
+  "bugs": {
+    "url": "https://github.com/defrostingk/big3/issues"
+  },
+  "homepage": "https://github.com/defrostingk/big3#readme",
   "dependencies": {
     "express": "^4.17.3",
     "pug": "^3.0.2"
