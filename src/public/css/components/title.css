@@ -4,8 +4,6 @@
   justify-content: center;
   width: fit-content;
   padding: 50px;
-  border-radius: var(--size-border-radius);
-  border: 2px solid var(--color-pink);
   width: 100%;
   margin-bottom: 10px;
 }
@@ -21,5 +19,6 @@
 }
 .title__description {
   text-align: center;
-  font-size: var(--font-small);
+  font-size: var(--font-regular);
+  color: var(--color-light-grey);
 }

@@ -17,6 +17,12 @@ footer {
   margin: 10px 0 5px 0;
 }
 
+.footer__github a,
+.footer__github i,
+.footer__github span {
+  cursor: pointer;
+}
+
 footer i {
   margin-right: 5px;
 }

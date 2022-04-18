@@ -7,26 +7,51 @@
 
 .login {
   width: 100%;
-  border: 2px solid var(--color-pink);
-  border-radius: var(--size-border-radius);
+  text-align: center;
 }
 
 .login__form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .login__id,
-.login__password,
-.login-btn {
+.login__password {
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .login-btn {
   border-bottom: 2px solid var(--color-light-grey);
+  width: 100%;
+  margin-bottom: 40px;
 }
 
-.join-btn {
-  margin: 10px 0;
+.login__form span {
+  content: '';
+  height: 2px;
+  width: 50%;
+  background-color: var(--color-light-grey);
+  display: block;
+}
+
+.join,
+.find-account {
+  cursor: pointer;
+  display: block;
+  color: var(--color-light-grey);
+  transition: all var(--animation-duration) ease-in-out;
+}
+.join {
+  margin-bottom: 10px;
+}
+
+.join:hover,
+.find-account:hover {
+  color: var(--color-black);
 }
