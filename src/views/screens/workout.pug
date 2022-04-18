@@ -1,7 +1,7 @@
 extends ../base.pug
 
 block content
-  include ../partials/header
+  include partials/header
 
   .stopwatch
     .stopwatch__time
@@ -22,4 +22,10 @@ block content
       span ss/ss
     button.break-end 휴식 종료
 
-  include ../partials/workout-navbar
+  .navbar-workout
+    .nav__stopwatch
+      span 스톱워치
+      i.fa-solid.fa-stopwatch
+    .nav__records
+      span 기록
+      i.fa-solid.fa-pen-to-square 

@@ -1,4 +1,30 @@
 :root {
   /* Color */
   --color-pink: #ff84ef;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-grey: #444041;
+  --color-light-grey: #b2b2b2;
+  --color-red: #fd4f79;
+  --color-yellow: #edf529;
+
+  /* Font */
+  --font-large: 32px;
+  --font-medium: 24px;
+  --font-regular: 16px;
+  --font-small: 12px;
+  --font-micro: 10px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+
+  /* Border */
+
+  /* Animation */
+  --animation-duration: 300ms;
 }
