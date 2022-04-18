@@ -1,7 +1,17 @@
 extends ../base.pug
 
 block content
-  .title
-    h1 삼대몇?
-    h3 운동 기록 웹 애플리케이션
+  include ../partials/title
+
+  .greeting
+    h2 안녕하세요, username님
+
+  .workout
+    span.workout__title 오늘의 운동
+    span.workout__content 가슴
+
+  .routine
+    span.routine__tilte 현재 루틴
+    span.routine__content 가슴-등-어깨-하체
+
   include ../partials/navbar
