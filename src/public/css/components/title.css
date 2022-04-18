@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-large);
+  font-size: var(--font-header);
   margin-bottom: 20px;
 }
 .title i {

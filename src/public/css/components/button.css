@@ -3,7 +3,15 @@ button {
   background-color: var(--color-pink);
   color: var(--color-white);
   border-radius: var(--size-border-radius);
-  border: none;
+  border: 2px solid var(--color-pink);
   padding: var(--size-padding-text);
   cursor: pointer;
+  outline: none;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+button:hover {
+  border: 2px solid var(--color-pink);
+  color: var(--color-pink);
+  background-color: var(--color-white);
 }
