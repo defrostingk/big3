@@ -1,0 +1,25 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  padding: 50px;
+  border-radius: var(--size-border-radius);
+  border: 2px solid var(--color-pink);
+  width: 100%;
+  margin-bottom: 10px;
+}
+.title__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-large);
+  margin-bottom: 20px;
+}
+.title i {
+  margin-right: 5px;
+}
+.title__description {
+  text-align: center;
+  font-size: var(--font-small);
+}

@@ -1,0 +1,15 @@
+input {
+  border: none;
+  font-size: var(--font-medium);
+  padding: var(--size-padding-text);
+  border-bottom: 2px solid var(--color-light-grey);
+}
+
+input::placeholder {
+  color: var(--color-light-grey);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-pink);
+}

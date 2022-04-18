@@ -17,11 +17,13 @@
 
   /* Font weight */
   --weight-bold: 700;
-  --weight-semi-bold: 600;
-  --weight-regular: 400;
+  --weight-semi-bold: 500;
+  --weight-regular: 300;
 
   /* Size */
   --size-border-radius: 4px;
+  --size-space: 10px;
+  --size-padding-text: 0.25em 0.5em;
 
   /* Border */
 

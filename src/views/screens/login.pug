@@ -1,12 +1,19 @@
 extends ../base.pug
 
 block content
-  include ../partials/title
+  .login__container
+    include ../partials/title
 
-  .login
-    input(type='text', placeholder='Id', required)
-    input(type='password', placeholder='Password', required)
-    button 로그인
-    button 회원가입
+    .login
+      form.login__form
+        input.login__id(type='text', placeholder='Id', required)
+        input.login__password(
+          type='password',
+          placeholder='Password',
+          required
+        )
+        button.login-btn Login
+        span
+        button.join-btn Join
 
     include ../partials/footer

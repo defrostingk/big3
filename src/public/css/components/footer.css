@@ -1,0 +1,26 @@
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-regular);
+}
+
+.footer__contact {
+  margin-bottom: 10px;
+}
+
+.footer__email {
+  margin: 10px 0 5px 0;
+}
+
+footer i {
+  margin-right: 5px;
+}
+
+.footer__copyright {
+  font-size: var(--font-small);
+}
