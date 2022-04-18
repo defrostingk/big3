@@ -12,7 +12,7 @@ liveReloadServer.watch(process.cwd());
 const app = express();
 app.use(connectLivereload());
 app.set('view engine', 'pug');
-app.set('views', process.cwd() + '/src/views');
+app.set('views', process.cwd() + '/src/views/screens');
 app.use('/public', express.static(process.cwd() + '/src/public'));
 app.get('/', (req, res) => res.render('home'));
 app.get('/login', (req, res) => res.render('login'));
