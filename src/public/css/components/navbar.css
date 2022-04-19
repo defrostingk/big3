@@ -7,6 +7,10 @@ nav {
   width: 100%;
 }
 
+nav * {
+  cursor: pointer;
+}
+
 nav span {
   margin-bottom: 10px;
   font-size: var(--font-regular);
@@ -16,10 +20,7 @@ nav i {
   font-size: var(--font-large);
 }
 
-.nav__workout,
-.nav__calendar,
-.nav__info,
-.nav__settings {
+nav div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,10 +31,7 @@ nav i {
   color: var(--color-white);
 }
 
-.nav__workout.selected,
-.nav__calendar.selected,
-.nav__info.selected,
-.nav__settings.selected {
+nav div.selected {
   color: var(--color-pink);
   background-color: var(--color-white);
 }

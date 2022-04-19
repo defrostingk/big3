@@ -6,7 +6,7 @@ import connectLivereload from 'connect-livereload';
 const liveReloadServer = livereload.createServer({
   exts: ['pug', 'js', 'css'],
 });
-liveReloadServer.watch(process.cwd());
+liveReloadServer.watch(process.cwd() + '/src');
 
 // App router
 const app = express();
