@@ -20,6 +20,7 @@
   padding: var(--size-padding-text);
   border-bottom: 2px solid var(--color-pink);
   width: fit-content;
+  color: var(--color-pink);
 }
 
 .workout,
@@ -45,4 +46,5 @@
 .workout__content,
 .routine__content li {
   border-bottom: 2px solid var(--color-pink);
+  color: var(--color-pink);
 }
