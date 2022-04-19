@@ -27,9 +27,10 @@
   --size-padding-text: 0.25em 0.5em;
   --size-header-height: 54px;
   --size-footer-height: 110px;
-  --size-container-padding-top: 70px;
-  --size-container-padding-bottom: 125px;
   --size-navbar-height: 80px;
+  --size-container-padding-top: 70px;
+  --size-container-padding-bottom-footer: 125px;
+  --size-container-padding-bottom-navbar: 95px;
 
   /* Border */
 

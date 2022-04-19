@@ -1,13 +1,3 @@
-.login__container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  height: 100%;
-  padding-bottom: var(--size-container-padding-bottom);
-  overflow-y: scroll;
-}
-
 .login {
   width: 100%;
   text-align: center;

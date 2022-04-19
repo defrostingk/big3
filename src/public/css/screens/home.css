@@ -1,14 +1,3 @@
-.home__container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 10px;
-  padding-bottom: var(--size-container-padding-bottom);
-  align-items: center;
-  width: 100%;
-  overflow-y: scroll;
-}
-
 .greeting,
 .workout,
 .routine {
