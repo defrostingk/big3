@@ -22,10 +22,7 @@
   padding-bottom: var(--size-container-padding-bottom-navbar);
 }
 .stopwatch__container,
-.break__container {
-  padding-top: var(--size-header-height);
-  padding-bottom: var(--size-navbar-height);
-}
+.break__container,
 .records__container,
 .calendar__container,
 .my-info__container {
