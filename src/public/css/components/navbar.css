@@ -1,0 +1,39 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav span {
+  margin-bottom: 10px;
+  font-size: var(--font-regular);
+}
+
+nav i {
+  font-size: var(--font-large);
+}
+
+.nav__workout,
+.nav__calendar,
+.nav__info,
+.nav__settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex: 1 1 25%;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+.nav__workout.selected,
+.nav__calendar.selected,
+.nav__info.selected,
+.nav__settings.selected {
+  color: var(--color-pink);
+  background-color: var(--color-white);
+}
