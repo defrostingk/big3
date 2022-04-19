@@ -11,6 +11,7 @@
 
 /* Screens */
 @import url('./screens/login.css');
+@import url('./screens/home.css');
 
 * {
   box-sizing: border-box;
