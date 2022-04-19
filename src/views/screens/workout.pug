@@ -25,6 +25,43 @@ block content
       button.break-end-btn End
 
   .records__container
+    button.load-btn
+      i.fa-solid.fa-plus
+      span Load my template
+    .records__board
+      .note
+        .note__header
+          span.note__title Bench press
+          span.note__category Chest
+        ul.note__contents
+          each num in [1,2,3,4,5]
+            li.note__set
+              input.set-check(type='checkbox')
+              span.set-number= num
+              span.set-weight 60kg
+              span.set-reps 5reps
+              button.set-delete-btn
+                i.fa-solid.fa-xmark
+          button.add-set-btn
+            i.fa-solid.fa-plus
+      .note
+        .note__header
+          span.note__title Dips
+          span.note__category Chest
+        ul.note__contents
+          each num in [1,2,3,4,5]
+            li.note__set
+              input.set-check(type='checkbox')
+              span.set-number= num
+              span.set-weight free
+              span.set-reps 15reps
+              button.set-delete-btn
+                i.fa-solid.fa-xmark
+          button.add-set-btn
+            i.fa-solid.fa-plus
+      button.add-note-btn
+        i.fa-solid.fa-plus
+        span Add a note
 
   nav
     .nav__stopwatch
