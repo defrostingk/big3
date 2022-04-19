@@ -5,6 +5,7 @@ nav {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: var(--size-navbar-height);
 }
 
 nav * {

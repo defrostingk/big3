@@ -3,7 +3,9 @@
   flex-direction: column;
   height: 100%;
   padding: 10px;
-  padding-bottom: var(--size-footer-height);
+  padding-bottom: var(--size-navbar-height);
+  align-items: center;
+  width: 100%;
 }
 
 .greeting,
@@ -12,4 +14,44 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.greeting {
+  font-size: var(--font-large);
+  padding: var(--size-padding-text);
+  border-bottom: 2px solid var(--color-pink);
+  width: fit-content;
+}
+
+.workout,
+.routine {
+  font-size: var(--font-medium);
+}
+
+.workout *,
+.routine * {
+  padding: var(--size-padding-text);
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.workout__title,
+.routine__title {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+.workout__content,
+.routine__content li {
+  border-bottom: 2px solid var(--color-pink);
+}
+
+.routine__content {
+  overflow-y: scroll;
+  max-height: 150px;
 }
