@@ -2,3 +2,8 @@
 .records__container {
   display: none;
 }
+.workout__container {
+  padding: 10px;
+  padding-top: var(--size-container-padding-top);
+  padding-bottom: var(--size-container-padding-bottom);
+}

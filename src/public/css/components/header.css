@@ -3,8 +3,12 @@ header {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
   border-bottom: 2px solid var(--color-pink);
+  height: var(--size-header-height);
+  width: 100%;
 }
 
 header button {
