@@ -9,6 +9,7 @@ header {
   border-bottom: 2px solid var(--color-pink);
   height: var(--size-header-height);
   width: 100%;
+  background-color: var(--color-white);
   color: var(--color-pink);
 }
 

@@ -1,0 +1,38 @@
+/* Sections */
+.login__container,
+.home__container,
+.stopwatch__container,
+.break__container,
+.records__container,
+.calendar__container,
+.my-info__container,
+.settings__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  overflow-y: scroll;
+  padding: 10px;
+}
+.login__container {
+  padding-bottom: var(--size-container-padding-bottom-footer);
+}
+.home__container {
+  padding-bottom: var(--size-container-padding-bottom-navbar);
+}
+.stopwatch__container,
+.break__container {
+  padding-top: var(--size-header-height);
+  padding-bottom: var(--size-navbar-height);
+}
+.records__container,
+.calendar__container,
+.my-info__container {
+  padding-top: var(--size-container-padding-top);
+  padding-bottom: var(--size-container-padding-bottom-navbar);
+}
+.settings__container {
+  padding-top: var(--size-container-padding-top);
+  padding-bottom: var(--size-container-padding-bottom-footer);
+}
