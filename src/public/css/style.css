@@ -12,6 +12,7 @@
 /* Screens */
 @import url('./screens/login.css');
 @import url('./screens/home.css');
+@import url(./screens/workout.css);
 
 * {
   box-sizing: border-box;
