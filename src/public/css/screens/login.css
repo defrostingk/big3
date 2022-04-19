@@ -27,7 +27,6 @@
 }
 
 .login-btn {
-  border-bottom: 2px solid var(--color-light-grey);
   width: 100%;
   margin-bottom: 40px;
 }
