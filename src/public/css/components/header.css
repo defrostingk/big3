@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  border-bottom: 2px solid var(--color-pink);
+}
+
+header button {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+header span {
+  font-size: var(--font-large);
+}
