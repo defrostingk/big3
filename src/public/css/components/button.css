@@ -10,6 +10,10 @@ button {
   transition: all var(--animation-duration) ease-in-out;
 }
 
+button * {
+  cursor: pointer;
+}
+
 button:hover {
   border: 2px solid var(--color-pink);
   color: var(--color-pink);
