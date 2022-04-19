@@ -6,6 +6,7 @@ nav {
   left: 0;
   width: 100%;
   height: var(--size-navbar-height);
+  background-color: var(--color-white);
 }
 
 nav * {
@@ -27,7 +28,7 @@ nav div {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  flex: 1 1 25%;
+  flex: 1 1 100%;
   background-color: var(--color-pink);
   color: var(--color-white);
   min-width: 85px;
