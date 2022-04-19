@@ -3,9 +3,10 @@
   flex-direction: column;
   height: 100%;
   padding: 10px;
-  padding-bottom: var(--size-navbar-height);
+  padding-bottom: var(--size-container-padding-bottom);
   align-items: center;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .greeting,
@@ -15,9 +16,13 @@
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 40px;
   max-width: 400px;
   width: 100%;
+}
+
+.greeting,
+.workout {
+  margin-bottom: 40px;
 }
 
 .greeting {
@@ -49,9 +54,4 @@
 .workout__content,
 .routine__content li {
   border-bottom: 2px solid var(--color-pink);
-}
-
-.routine__content {
-  overflow-y: scroll;
-  max-height: 150px;
 }

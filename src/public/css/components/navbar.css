@@ -1,7 +1,7 @@
 nav {
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -30,6 +30,7 @@ nav div {
   flex: 1 1 25%;
   background-color: var(--color-pink);
   color: var(--color-white);
+  min-width: 85px;
 }
 
 nav div.selected {

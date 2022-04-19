@@ -4,7 +4,8 @@
   flex-direction: column;
   padding: 10px;
   height: 100%;
-  padding-bottom: var(--size-footer-height);
+  padding-bottom: var(--size-container-padding-bottom);
+  overflow-y: scroll;
 }
 
 .login {

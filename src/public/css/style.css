@@ -41,3 +41,11 @@ main {
   height: 100%;
   width: 100%;
 }
+
+/* Invisible Scroll */
+body {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
