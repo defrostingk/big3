@@ -7,6 +7,7 @@ footer {
   width: 100%;
   padding: 10px;
   font-size: var(--font-regular);
+  height: var(--size-footer-height);
 }
 
 .footer__contact {

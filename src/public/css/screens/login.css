@@ -2,8 +2,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 10px;
+  height: 100%;
+  padding-bottom: var(--size-footer-height);
 }
 
 .login {
@@ -17,8 +18,8 @@
   align-items: center;
   padding: 10px;
   margin: 0 auto;
-  margin-bottom: 20px;
   max-width: 500px;
+  margin-bottom: 20px;
 }
 
 .login__id,
