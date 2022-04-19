@@ -5,7 +5,7 @@
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: var(--size-content-max-width);
   width: 100%;
   padding: 0 10px;
 }
