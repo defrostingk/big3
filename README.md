@@ -32,4 +32,22 @@ usage in local environment
 
 <br>
 
-files
+- src
+
+  - public
+
+    - css
+
+    - js
+
+    - images
+
+  - views
+
+    - partials
+
+    - screens
+
+    - base.pug
+
+  - server.js
