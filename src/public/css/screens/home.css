@@ -20,6 +20,14 @@
   border-bottom: 2px solid var(--color-pink);
   width: fit-content;
   color: var(--color-pink);
+  position: relative;
+}
+
+.greeting__login-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 
 .workout,
