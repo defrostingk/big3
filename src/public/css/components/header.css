@@ -17,6 +17,12 @@ header {
   position: absolute;
   left: 5px;
   top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--font-medium) * 1.8);
+  height: calc(var(--font-medium) * 1.8);
+  padding: 0;
 }
 
 .header__title {
