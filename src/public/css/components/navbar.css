@@ -22,7 +22,7 @@ nav i {
   font-size: var(--font-large);
 }
 
-nav div {
+nav a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +34,7 @@ nav div {
   min-width: 85px;
 }
 
-nav div.selected {
+nav a.selected {
   color: var(--color-pink);
   background-color: var(--color-white);
 }
