@@ -1,9 +1,10 @@
 extends ../base.pug
 
 block content
+  include ../partials/header
   .login__container
-    include ../partials/title
     .login
+      include ../partials/title
       form.login__form
         input.login__id(type='text', placeholder='Id', required)
         input.login__password(
