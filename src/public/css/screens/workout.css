@@ -34,11 +34,13 @@
 }
 
 .quit-btn {
-  background-color: var(--color-red);
-  border-color: var(--color-red);
+  background-color: var(--color-white);
+  color: var(--color-pink);
 }
 .quit-btn:hover {
-  color: var(--color-red);
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
 }
 
 /* Break */

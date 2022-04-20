@@ -16,8 +16,7 @@ input[type='checkbox'] + label {
   background-color: var(--color-white);
 }
 
-input[type='checkbox']:checked + label::after,
-input[type='checkbox']:hover + label::after {
+input[type='checkbox']:checked + label::after {
   content: '✔';
   color: var(--color-white);
   background-color: var(--color-pink);
