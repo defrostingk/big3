@@ -7,7 +7,6 @@
   margin: 0 auto;
   max-width: var(--size-content-max-width);
   width: 100%;
-  padding: 0 10px;
 }
 
 .greeting,

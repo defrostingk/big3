@@ -7,12 +7,6 @@
 }
 
 /* Stopwatch */
-
-.stopwatch__container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .stopwatch__time {
   font-size: var(--font-header);
   margin-bottom: 10px;
@@ -48,11 +42,6 @@
 }
 
 /* Break */
-.break__container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .break__timer {
   font-size: calc(var(--font-header) * 1.8);
   border-radius: 50%;
@@ -87,4 +76,14 @@
 
 .break-end-btn {
   width: 100%;
+}
+
+/* Records */
+.load-btn {
+  display: flex;
+  align-items: center;
+}
+
+.load-btn i {
+  margin-right: 10px;
 }
