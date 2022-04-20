@@ -34,9 +34,11 @@ block content
           span.note__title Bench press
           span.note__category Chest
         ul.note__contents
+          li.set__header
           each num in [1,2,3,4,5]
             li.note__set
-              input.set-check(type='checkbox')
+              input#setCheck.set-check(type='checkbox')
+              label(for='setCheck')
               span.set-number= num
               span.set-weight 60kg
               span.set-reps 5reps
@@ -51,7 +53,8 @@ block content
         ul.note__contents
           each num in [1,2,3,4,5]
             li.note__set
-              input.set-check(type='checkbox')
+              input#setCheck.set-check(type='checkbox')
+              label(for='setCheck')
               span.set-number= num
               span.set-weight free
               span.set-reps 15reps

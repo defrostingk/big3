@@ -1,0 +1,30 @@
+input[type='checkbox'] {
+  display: none;
+}
+input[type='checkbox'] + label,
+input[type='checkbox'] + label::after {
+  width: calc(var(--font-small) * 2);
+  height: calc(var(--font-small) * 2);
+  border-radius: var(--size-border-radius);
+  cursor: pointer;
+}
+
+input[type='checkbox'] + label {
+  border: 2px solid var(--color-pink);
+  display: inline-block;
+  position: relative;
+  background-color: var(--color-white);
+}
+
+input[type='checkbox']:checked + label::after,
+input[type='checkbox']:hover + label::after {
+  content: '✔';
+  color: var(--color-white);
+  background-color: var(--color-pink);
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  text-align: center;
+  line-height: calc(var(--font-small) * 2);
+  font-size: var(--font-small);
+}
