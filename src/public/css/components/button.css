@@ -1,4 +1,5 @@
-button {
+button,
+.greeting__login-btn {
   font-size: var(--font-medium);
   background-color: var(--color-pink);
   color: var(--color-white);
@@ -10,11 +11,13 @@ button {
   transition: all var(--animation-duration) ease-in-out;
 }
 
-button * {
+button *,
+.greeting__login-btn * {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+.greeting__login-btn:hover {
   border: 2px solid var(--color-pink);
   color: var(--color-pink);
   background-color: var(--color-white);
