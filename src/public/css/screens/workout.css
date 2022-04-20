@@ -80,10 +80,65 @@
 
 /* Records */
 .load-btn {
+  margin-bottom: 15px;
+}
+
+.load-btn,
+.add-note-btn {
   display: flex;
   align-items: center;
 }
 
-.load-btn i {
+.load-btn i,
+.add-note-btn i {
   margin-right: 10px;
+}
+
+.records__board {
+  width: 100%;
+  background-color: var(--color-pink);
+  border-radius: var(--size-border-radius);
+  padding: 10px;
+}
+
+.note {
+  width: 100%;
+  background-color: var(--color-light-brown);
+  border-radius: var(--size-border-radius);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.note__header {
+  font-size: var(--font-medium);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-pink);
+  padding: var(--size-padding-text);
+  margin-bottom: 10px;
+}
+
+.note__category {
+  font-size: var(--font-regular);
+  background-color: var(--color-white);
+  border-radius: var(--size-border-radius);
+  padding: var(--size-padding-text);
+}
+
+.note__set {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.set-delete-btn,
+.set-add-btn {
+  font-size: var(--font-small);
+  width: calc(var(--font-small) * 2);
+  height: calc(var(--font-small) * 2);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
