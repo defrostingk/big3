@@ -1,5 +1,6 @@
 button,
-.greeting__login-btn {
+.greeting__login-btn,
+.header__home-btn {
   font-size: var(--font-medium);
   background-color: var(--color-pink);
   color: var(--color-white);
@@ -12,12 +13,14 @@ button,
 }
 
 button *,
-.greeting__login-btn * {
+.greeting__login-btn *,
+.header__home-btn * {
   cursor: pointer;
 }
 
 button:hover,
-.greeting__login-btn:hover {
+.greeting__login-btn:hover,
+.header__home-btn:hover {
   border: 2px solid var(--color-pink);
   color: var(--color-pink);
   background-color: var(--color-white);

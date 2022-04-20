@@ -13,12 +13,12 @@ header {
   color: var(--color-pink);
 }
 
-header button {
+.header__home-btn {
   position: absolute;
   left: 5px;
   top: 5px;
 }
 
-header span {
+.header__title {
   font-size: var(--font-large);
 }
