@@ -3,6 +3,77 @@ extends ../base.pug
 block content
   include ../partials/header
   .calendar__container
-    span calendar
+    .calendar
+      .calendar__header
+        button.prev-month-btn
+          i.fa-solid.fa-angle-left
+        span.calendar__month April, 2022
+        button.next-month-btn
+          i.fa-solid.fa-angle-right
+      table.calendar__contents
+        tr.calendar__weeks
+          td Sun
+          td Mon
+          td Tue
+          td Wed
+          td Thu
+          td Fri
+          td Sat
+        tr.calendar__days-first
+          td 
+          td 
+          td 
+          td 
+          td 
+          td
+            span.calendar__day 1
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
+          td 
+            span.calendar__day 2
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
+        tr.calendar__days-second
+        - for (let i = 3; i <10; i++)
+          td
+            span.calendar__day= i
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
+        tr.calendar__days-third
+        - for (let i = 10; i <17; i++)
+          td
+            span.calendar__day= i
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
+        tr.calendar__days-fourth
+        - for (let i = 17; i <24; i++)
+          td
+            span.calendar__day= i
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
+        tr.calendar__days-fifth
+        - for (let i = 24; i <31; i++)
+          td
+            span.calendar__day= i
+            span.calendar__workout-time 80 min
+            span.calendar__sets 30
+            ul.calendar__sets-category
+              li Chest 20
+              li Triceps 10
 
   include ../partials/navbar
