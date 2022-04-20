@@ -6,6 +6,7 @@
   --color-dark-grey: #444041;
   --color-light-grey: #b2b2b2;
   --color-red: #fd4f79;
+  --color-blue: #2d8cff;
   --color-yellow: #edf529;
   --color-light-brown: #fee4a9;
 
@@ -15,7 +16,7 @@
   --font-medium: 24px;
   --font-regular: 16px;
   --font-small: 12px;
-  --font-micro: 10px;
+  --font-micro: 8px;
 
   /* Font weight */
   --weight-bold: 700;

@@ -19,61 +19,61 @@ block content
           td Thu
           td Fri
           td Sat
-        tr.calendar__days-first
+        tr.calendar__days
           td 
+            span.calendar__day.not-current 27
           td 
+            span.calendar__day.not-current 28
           td 
+            span.calendar__day.not-current 29
           td 
+            span.calendar__day.not-current 30
           td 
+            span.calendar__day.not-current 31
           td
             span.calendar__day 1
             span.calendar__workout-time 80 min
-            span.calendar__sets 30
+            span.calendar__sets 30 set
             ul.calendar__sets-category
               li Chest 20
-              li Triceps 10
+              li Trice 10
           td 
             span.calendar__day 2
             span.calendar__workout-time 80 min
-            span.calendar__sets 30
+            span.calendar__sets 30 set
             ul.calendar__sets-category
               li Chest 20
-              li Triceps 10
-        tr.calendar__days-second
-        - for (let i = 3; i <10; i++)
-          td
-            span.calendar__day= i
-            span.calendar__workout-time 80 min
-            span.calendar__sets 30
-            ul.calendar__sets-category
-              li Chest 20
-              li Triceps 10
-        tr.calendar__days-third
-        - for (let i = 10; i <17; i++)
-          td
-            span.calendar__day= i
-            span.calendar__workout-time 80 min
-            span.calendar__sets 30
-            ul.calendar__sets-category
-              li Chest 20
-              li Triceps 10
-        tr.calendar__days-fourth
-        - for (let i = 17; i <24; i++)
-          td
-            span.calendar__day= i
-            span.calendar__workout-time 80 min
-            span.calendar__sets 30
-            ul.calendar__sets-category
-              li Chest 20
-              li Triceps 10
-        tr.calendar__days-fifth
-        - for (let i = 24; i <31; i++)
-          td
-            span.calendar__day= i
-            span.calendar__workout-time 80 min
-            span.calendar__sets 30
-            ul.calendar__sets-category
-              li Chest 20
-              li Triceps 10
+              li Trice 10
+        tr.calendar__days
+          - for (let i = 3; i <10; i++)
+            td
+              span.calendar__day= i
+        tr.calendar__days
+          - for (let i = 10; i <17; i++)
+            td
+              span.calendar__day= i
+              span.calendar__workout-time 120 min
+              span.calendar__sets 40 set
+              ul.calendar__sets-category
+                li Chest 20
+                li Trice 10
+                li Bicep 10
+        tr.calendar__days
+          - for (let i = 17; i <24; i++)
+            td
+              span.calendar__day= i
+              span.calendar__workout-time 60 min
+              span.calendar__sets 20 set
+              ul.calendar__sets-category
+                li Back 20
+        tr.calendar__days
+          - for (let i = 24; i <31; i++)
+            td
+              span.calendar__day= i
+              span.calendar__workout-time 80 min
+              span.calendar__sets 30 set
+              ul.calendar__sets-category
+                li Chest 20
+                li Trice 10
 
   include ../partials/navbar
