@@ -3,11 +3,16 @@ extends ../base.pug
 block content
   include ../partials/header
   .container.join__container
-    form.join__form(method='POST')
-      input.join__email(type='text', placeholder='Email')
-      input.join__username(type='text', placeholder='Username')
-      input.join__password(type='text', placeholder='Password')
-      input.join__password-confirm(type='text', placeholder='Confirm password')
-      button.join__join-btn Join
+    .join
+      form.join__form(method='POST')
+        input.join__email(type='email', placeholder='Email', required)
+        input.join__username(type='text', placeholder='Username', required)
+        input.join__password(type='password', placeholder='Password', required)
+        input.join__password-confirm(
+          type='password',
+          placeholder='Confirm password',
+          required
+        )
+        button.join__join-btn Join
 
   include ../partials/footer

@@ -13,8 +13,9 @@
 @import url('./components/checkbox.css');
 
 /* Screens */
-@import url('./screens/login.css');
 @import url('./screens/home.css');
+@import url('./screens/login.css');
+@import url('./screens/join.css');
 @import url('./screens/workout.css');
 @import url('./screens/calendar.css');
 @import url('./screens/my-info.css');

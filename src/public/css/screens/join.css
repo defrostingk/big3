@@ -1,0 +1,11 @@
+.join {
+  margin: auto;
+}
+
+.join__password-confirm {
+  margin-bottom: 20px;
+}
+
+.join__join-btn {
+  width: 100%;
+}

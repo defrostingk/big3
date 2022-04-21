@@ -33,18 +33,18 @@
   display: block;
 }
 
-.join,
-.find-account {
+.login__join,
+.login__find-account {
   cursor: pointer;
   display: block;
   color: var(--color-light-grey);
   transition: all var(--animation-duration) ease-in-out;
 }
-.join {
+.login__join {
   margin-bottom: 10px;
 }
 
-.join:hover,
-.find-account:hover {
+.login__join:hover,
+.login__find-account:hover {
   color: var(--color-black);
 }
