@@ -1,6 +1,7 @@
 .login {
   margin: auto;
   text-align: center;
+  width: 100%;
 }
 
 .login__form {
