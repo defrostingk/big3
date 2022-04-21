@@ -2,6 +2,13 @@
   margin: auto;
 }
 
+.join__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .join__password-confirm {
   margin-bottom: 20px;
 }

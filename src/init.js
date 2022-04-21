@@ -1,4 +1,4 @@
-// import './db';
+import './db';
 import app from './server';
 
 // Port

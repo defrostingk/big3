@@ -6,13 +6,19 @@ block content
     .login
       include ../partials/title
       form.login__form
-        input.login__email(type='text', placeholder='Email', required)
+        input.login__email(
+          name='email',
+          type='text',
+          placeholder='Email',
+          required
+        )
         input.login__password(
+          name='password',
           type='password',
           placeholder='Password',
           required
         )
-        button.login-btn Login
+        input.login-btn(type='submit', value='Login')
         span
       a.login__join(href='../join') Create a new account
       a.login__find-account(href='#') Find your account or password
