@@ -1,15 +1,22 @@
 import express from 'express';
-import { home } from './controller';
+import {
+  getCalendar,
+  getHome,
+  getLogin,
+  getMyInfo,
+  getSettings,
+  getWorkout,
+} from './controller';
 
 const router = express.Router();
 
 // Get Requests
-router.get('/', home);
-router.get('/login', (req, res) => res.render('login'));
-router.get('/workout', (req, res) => res.render('workout'));
-router.get('/calendar', (req, res) => res.render('calendar'));
-router.get('/my-info', (req, res) => res.render('my-info'));
-router.get('/settings', (req, res) => res.render('settings'));
-router.get('/*', (req, res) => res.redirect('/'));
+router.get('/', getHome);
+router.get('/login', getLogin);
+router.get('/workout', getWorkout);
+router.get('/calendar', getCalendar);
+router.get('/my-info', getMyInfo);
+router.get('/settings', getSettings);
+router.get('/*', getHome);
 
 export default router;

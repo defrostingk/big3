@@ -1,12 +1,23 @@
-// // Get Requests
-// app.get('/', (req, res) => res.render('home'));
-// app.get('/login', (req, res) => res.render('login'));
-// app.get('/workout', (req, res) => res.render('workout'));
-// app.get('/calendar', (req, res) => res.render('calendar'));
-// app.get('/my-info', (req, res) => res.render('my-info'));
-// app.get('/settings', (req, res) => res.render('settings'));
-// app.get('/*', (req, res) => res.redirect('/'));
-
-export function home(req, res) {
+export function getHome(req, res) {
   return res.render('home');
+}
+
+export function getLogin(req, res) {
+  return res.render('login');
+}
+
+export function getWorkout(req, res) {
+  return res.render('workout');
+}
+
+export function getCalendar(req, res) {
+  return res.render('calendar');
+}
+
+export function getMyInfo(req, res) {
+  return res.redner('my-info');
+}
+
+export function getSettings(req, res) {
+  return res.render('settings');
 }
