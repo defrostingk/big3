@@ -38,8 +38,8 @@ block content
               input#setCheck.set-check(type='checkbox')
               label(for='setCheck')
               span.set-number= num
-              span.set-weight 60kg
-              span.set-reps 5reps
+              input.set-weight(type='text', value='60kg', placeholder='weight')
+              input.set-reps(type='text', value='5reps', placeholder='reps')
               button.set-delete-btn
                 i.fa-solid.fa-xmark
           button.set-add-btn
@@ -54,8 +54,8 @@ block content
               input#setCheck.set-check(type='checkbox')
               label(for='setCheck')
               span.set-number= num
-              span.set-weight free
-              span.set-reps 15reps
+              input.set-weight(type='text', value='free', placeholder='weight')
+              input.set-reps(type='text', value='15reps', placeholder='reps')
               button.set-delete-btn
                 i.fa-solid.fa-xmark
           button.set-add-btn
