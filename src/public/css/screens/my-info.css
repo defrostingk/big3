@@ -1,0 +1,39 @@
+.my-info {
+  width: 100%;
+  margin: auto;
+}
+
+.big3__header,
+.my-body__header {
+  border-bottom: 2px solid var(--color-pink);
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big3__header {
+  flex-direction: column;
+}
+
+.big3__header span:first-child {
+  font-size: var(--font-medium);
+  margin-bottom: 5px;
+  color: var(--color-light-grey);
+}
+.big3__header span:last-child,
+.my-body__header {
+  font-size: var(--font-large);
+  color: var(--color-pink);
+}
+
+.big3__contents div,
+.my-body__contents div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: var(--font-regular);
+}

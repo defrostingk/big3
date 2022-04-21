@@ -3,5 +3,37 @@ extends ../base.pug
 block content
   include ../partials/header
   .my-info__container
-    span my-info
+    .my-info
+      .big3__header
+        span What are your big 3?
+        span 330kg
+      .big3__contents
+        .big3__squat
+          span Squat
+          span 130kg
+        .big3__bench-press
+          span Bench press
+          span 80kg
+        .big3__dead-lift
+          span Dead lift
+          span 120kg
+
+      span.my-body__header My body
+      .my-body__contents
+        .my-body__height
+          span Height
+          span 172cm
+        .my-body__weight
+          span Weight
+          span 69.8kg
+        .my-body__skeletal-muscle-mass
+          span Skeletal muscle mass
+          span 33.4kg
+        .my-body__body-fat-mass
+          span Body fat mass
+          span 11.3kg
+        .my-body__percent-body-fat
+          span Percent body fat
+          span 16.2%
+
   include ../partials/navbar
