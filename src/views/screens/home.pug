@@ -2,21 +2,22 @@ extends ../base.pug
 
 block content
   .home__container
-    include ../partials/title
-    .greeting
-      h2 Hello, username
-      a.greeting__login-btn(href='/login') Login
+    .home
+      include ../partials/title
+      .greeting
+        h2 Hello, username
+        a.greeting__login-btn(href='/login') Login
 
-    .workout
-      span.workout__title Today's Workout
-      span.workout__content Chest
+      .workout
+        span.workout__title Today's Workout
+        span.workout__content Chest
 
-    .routine
-      span.routine__title Current Routine
-      ul.routine__content
-        li Chest
-        li Back
-        li Shoulder
-        li Lower Body
+      .routine
+        span.routine__title Current Routine
+        ul.routine__content
+          li Chest
+          li Back
+          li Shoulder
+          li Lower Body
 
   include ../partials/navbar
