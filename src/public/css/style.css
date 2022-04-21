@@ -18,6 +18,7 @@
 @import url('./screens/workout.css');
 @import url('./screens/calendar.css');
 @import url('./screens/my-info.css');
+@import url('./screens/settings.css');
 
 * {
   box-sizing: border-box;

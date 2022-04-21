@@ -1,0 +1,38 @@
+.settings__container {
+  align-items: flex-start;
+}
+
+.settings__section {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.settings__class {
+  font-size: var(--font-large);
+  padding: var(--size-padding-text);
+  border-bottom: 2px solid var(--color-pink);
+  width: 100%;
+  color: var(--color-pink);
+  margin-bottom: 10px;
+}
+
+.settings__class i {
+  margin-right: 10px;
+  width: 40px;
+}
+
+.settings__items {
+  padding-left: 20px;
+}
+
+.settings__item {
+  font-size: var(--font-medium);
+  padding: var(--size-padding-text);
+  width: 100%;
+  border-bottom: 2px solid var(--color-light-grey);
+}
+
+.settings__item i {
+  margin-right: 8px;
+  width: 30px;
+}

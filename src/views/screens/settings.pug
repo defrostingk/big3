@@ -3,5 +3,39 @@ extends ../base.pug
 block content
   include ../partials/header
   .settings__container
-    span settings
+    .settings__section
+      .settings__class
+        i.fa-solid.fa-dumbbell
+        span Workout
+      .settings__items
+        .settings__item
+          i.fa-solid.fa-hourglass-empty
+          span Break time
+        .settings__item
+          i.fa-regular.fa-note-sticky
+          span Templates
+        .settings__item
+          i.fa-solid.fa-arrows-rotate
+          span Routine
+
+    .settings__section
+      .settings__class
+        i.fa-solid.fa-user
+        span My info
+      .settings__items
+        .settings__item
+          i.fa-solid.fa-child-reaching
+          span My body
+
+    .settings__section
+      .settings__class
+        i.fa-solid.fa-gears
+        span General
+      .settings__items
+        .settings__item
+          i.fa-solid.fa-user-gear
+          span User
+        .settings__item
+          i.fa-solid.fa-brush
+          span Theme
   include ../partials/footer
