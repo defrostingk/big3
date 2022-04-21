@@ -2,7 +2,7 @@ extends ../base.pug
 
 block content
   include ../partials/header
-  .stopwatch__container
+  .container.stopwatch__container
     .stopwatch
       span.stopwatch__time HH:MM:SS.00
       span.stopwatch__time--pure HH:MM:SS.00
@@ -15,14 +15,14 @@ block content
           button.reset-btn Reset
           button.quit-btn Quit
 
-  .break__container
+  .container.break__container
     .break
       .break__timer
         span.remain-time 24
         span.total-time 60
       button.break-end-btn End
 
-  .records__container
+  .container.records__container
     button.load-btn
       i.fa-solid.fa-plus
       span Load my template

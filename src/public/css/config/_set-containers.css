@@ -1,12 +1,5 @@
 /* Sections */
-.login__container,
-.home__container,
-.stopwatch__container,
-.break__container,
-.records__container,
-.calendar__container,
-.my-info__container,
-.settings__container {
+.container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -14,22 +7,17 @@
   align-items: center;
   overflow-y: scroll;
   padding: 20px;
+  padding-top: var(--size-container-padding-top);
+  padding-bottom: var(--size-container-padding-bottom-navbar);
 }
 .login__container {
+  padding-top: 20px;
   padding-bottom: var(--size-container-padding-bottom-footer);
 }
 .home__container {
-  padding-bottom: var(--size-container-padding-bottom-navbar);
-}
-.stopwatch__container,
-.break__container,
-.records__container,
-.calendar__container,
-.my-info__container {
-  padding-top: var(--size-container-padding-top);
+  padding-top: 20px;
   padding-bottom: var(--size-container-padding-bottom-navbar);
 }
 .settings__container {
-  padding-top: var(--size-container-padding-top);
   padding-bottom: var(--size-container-padding-bottom-footer);
 }
