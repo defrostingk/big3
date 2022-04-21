@@ -2,6 +2,7 @@
 import express from 'express';
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
+import { home } from './controller';
 
 // Live Reload
 const liveReloadServer = livereload.createServer({
@@ -9,13 +10,15 @@ const liveReloadServer = livereload.createServer({
 });
 liveReloadServer.watch(process.cwd() + '/src');
 
-// App router
+// App settings
 const app = express();
 app.use(connectLivereload());
 app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/src/views/screens');
 app.use('/public', express.static(process.cwd() + '/src/public'));
-app.get('/', (req, res) => res.render('home'));
+
+// Get Requests
+app.get('/', home);
 app.get('/login', (req, res) => res.render('login'));
 app.get('/workout', (req, res) => res.render('workout'));
 app.get('/calendar', (req, res) => res.render('calendar'));
