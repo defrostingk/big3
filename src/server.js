@@ -1,4 +1,3 @@
-// import './db';
 import express from 'express';
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
