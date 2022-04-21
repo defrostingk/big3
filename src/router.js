@@ -3,7 +3,7 @@ import {
   getCalendar,
   getHome,
   getLogin,
-  gerRegister,
+  getJoin,
   getMyInfo,
   getSettings,
   getWorkout,
@@ -14,7 +14,7 @@ const router = express.Router();
 // Get Requests
 router.get('/', getHome);
 router.get('/login', getLogin);
-router.get('/join', gerRegister);
+router.get('/join', getJoin);
 router.get('/workout', getWorkout);
 router.get('/calendar', getCalendar);
 router.get('/my-info', getMyInfo);

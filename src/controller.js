@@ -6,8 +6,8 @@ export function getLogin(req, res) {
   return res.render('login', { sectionTitle: 'Login' });
 }
 
-export function gerRegister(req, res) {
-  return res.render('register', { sectionTitle: 'Register' });
+export function getJoin(req, res) {
+  return res.render('join', { sectionTitle: 'Join' });
 }
 
 export function getWorkout(req, res) {
