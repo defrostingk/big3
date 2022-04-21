@@ -17,6 +17,6 @@ router.get('/workout', getWorkout);
 router.get('/calendar', getCalendar);
 router.get('/my-info', getMyInfo);
 router.get('/settings', getSettings);
-router.get('/*', getHome);
+router.get('/*', (req, res) => res.redirect('/'));
 
 export default router;
