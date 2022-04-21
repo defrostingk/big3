@@ -5,14 +5,30 @@ block content
   .container.join__container
     .join
       form.join__form(method='POST')
-        input.join__email(type='email', placeholder='Email', required)
-        input.join__username(type='text', placeholder='Username', required)
-        input.join__password(type='password', placeholder='Password', required)
+        input.join__email(
+          name='email',
+          type='email',
+          placeholder='Email',
+          required
+        )
+        input.join__username(
+          name='username',
+          type='text',
+          placeholder='Username',
+          required
+        )
+        input.join__password(
+          name='password',
+          type='password',
+          placeholder='Password',
+          required
+        )
         input.join__password-confirm(
+          name='password-confirm',
           type='password',
           placeholder='Confirm password',
           required
         )
-        button.join__join-btn Join
+        input.join__join-btn(type='submit', value='Join')
 
   include ../partials/footer
