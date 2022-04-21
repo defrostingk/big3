@@ -18,12 +18,4 @@ app.set('views', process.cwd() + '/src/views/screens');
 app.use('/public', express.static(process.cwd() + '/src/public'));
 app.use('/', router);
 
-// Port
-const LOCAL_PORT = 4000;
-const PORT = process.env.PORT || LOCAL_PORT;
-
-app.listen(PORT, () => {
-  if (PORT === LOCAL_PORT) {
-    console.log(`Server listening on port http://localhost:${PORT}`);
-  }
-});
+export default app;
