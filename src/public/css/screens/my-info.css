@@ -4,7 +4,8 @@
 }
 
 .big3__header,
-.my-body__header {
+.my-body__header,
+.target__header {
   border-bottom: 2px solid var(--color-pink);
   text-align: center;
   padding: 10px;
@@ -25,15 +26,17 @@
   color: var(--color-light-grey);
 }
 .big3__header span:last-child,
-.my-body__header {
+.my-body__header,
+.target__header {
   font-size: var(--font-large);
   color: var(--color-pink);
 }
 
 .big3__contents div,
-.my-body__contents div {
+.my-body__contents div,
+.target__contents div {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-size: var(--font-regular);
 }
