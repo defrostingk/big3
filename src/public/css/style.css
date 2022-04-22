@@ -62,7 +62,7 @@ body {
 .error-message {
   padding: var(--size-padding-text);
   color: var(--color-red);
-  margin-bottom: 15px;
+  margin: 15px auto;
   text-align: center;
   display: block;
   font-size: var(--font-regular);

@@ -12,7 +12,7 @@ export function getJoin(req, res) {
 export async function postJoin(req, res) {
   const { email, username, password, passwordConfirm } = req.body;
 
-  // Error handling
+  // Handle error
   const existEmail = await User.exists({ email });
   const existUsername = await User.exists({ username });
   if (password !== passwordConfirm) {

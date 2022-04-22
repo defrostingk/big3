@@ -5,7 +5,8 @@ block content
   .container.login__container
     .login
       include ../partials/title
-      form.login__form
+      span.error-message= errorMessage
+      form.login__form(method='POST')
         input.login__email(
           name='email',
           type='text',
@@ -19,7 +20,6 @@ block content
           required
         )
         input.login-btn(type='submit', value='Login')
-        span
       a.login__join(href='../join') Create a new account
       a.login__find-account(href='#') Find your account or password
 
