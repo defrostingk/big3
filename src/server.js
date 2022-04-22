@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
 import router from './router';
@@ -21,6 +22,13 @@ app.set('views', process.cwd() + '/src/views/screens');
 app.use('/public', express.static(process.cwd() + '/src/public'));
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: 'big3',
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use('/', router);
 
 export default app;
