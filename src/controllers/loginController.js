@@ -1,5 +1,6 @@
 import User from '../models/User';
 import bcrypt from 'bcrypt';
+import res from 'express/lib/response';
 
 const sectionTitle = 'Login';
 const ERROR_NOT_EXIST_USER = 'Your email does not exist.';
@@ -32,5 +33,9 @@ export async function postLogin(req, res) {
   req.session.loggedIn = true;
   req.session.loggedInUser = user;
 
+  return res.redirect('/');
+}
+
+export function getLogout(req, res) {
   return res.redirect('/');
 }
