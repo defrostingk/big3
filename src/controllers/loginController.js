@@ -37,5 +37,6 @@ export async function postLogin(req, res) {
 }
 
 export function getLogout(req, res) {
+  req.session.destroy();
   return res.redirect('/');
 }
