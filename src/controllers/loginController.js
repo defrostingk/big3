@@ -30,7 +30,7 @@ export async function postLogin(req, res) {
 
   // Session
   req.session.loggedIn = true;
-  req.session.user = user;
+  req.session.loggedInUser = user;
 
   return res.redirect('/');
 }

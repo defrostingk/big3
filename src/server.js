@@ -4,6 +4,7 @@ import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
 import router from './router';
 import morgan from 'morgan';
+import MongoStore from 'connect-mongo';
 import { localsMiddleware } from './middlewares';
 
 // Live Reload
@@ -30,6 +31,7 @@ app.use(
     secret: 'big3',
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/big3' }),
   })
 );
 app.use(localsMiddleware);

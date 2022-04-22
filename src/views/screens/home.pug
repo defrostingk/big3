@@ -6,7 +6,7 @@ block content
       include ../partials/title
       .greeting
         if (loggedIn)
-          h2 Hello, #{ user.username }
+          h2 Hello, #{ loggedInUser.username }
         if (!loggedIn)
           a.button.greeting__login-btn(href='/login') Login
 
