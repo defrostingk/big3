@@ -35,6 +35,13 @@
 
 .greeting__login-btn {
   width: 100%;
+  background-color: var(--color-white);
+  color: var(--color-pink);
+}
+
+.greeting__login-btn:hover {
+  background-color: var(--color-pink);
+  color: var(--color-white);
 }
 
 .workout,

@@ -2,7 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
-import router from './router';
+import rootRouter from './routers/rootRouter';
 import morgan from 'morgan';
 import MongoStore from 'connect-mongo';
 import { localsMiddleware } from './middlewares';
@@ -18,12 +18,12 @@ const logger = morgan('dev');
 
 // App settings
 const app = express();
-app.use(connectLivereload());
 app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/src/views/screens');
-app.use('/public', express.static(process.cwd() + '/src/public'));
 
 // Middlewares
+app.use(connectLivereload());
+app.use('/static', express.static(process.cwd() + '/src/public'));
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -35,6 +35,8 @@ app.use(
   })
 );
 app.use(localsMiddleware);
-app.use('/', router);
+
+// Routers
+app.use('/', rootRouter);
 
 export default app;
