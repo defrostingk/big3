@@ -43,11 +43,12 @@
 }
 
 .settings__logout-btn {
-  width: 50%;
+  width: 100%;
   background-color: var(--color-red);
   border-color: var(--color-red);
   display: block;
   text-align: center;
+  margin-top: 50px;
 }
 
 .settings__logout-btn:hover {
