@@ -58,6 +58,16 @@ body {
   display: none;
 }
 
+/* Error Message */
+.error-message {
+  padding: var(--size-padding-text);
+  color: var(--color-red);
+  margin-bottom: 15px;
+  text-align: center;
+  display: block;
+  font-size: var(--font-regular);
+}
+
 /* Dev */
 .stopwatch__container {
   display: none;

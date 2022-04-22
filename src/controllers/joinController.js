@@ -1,9 +1,9 @@
 import User from '../models/User';
 
 const sectionTitle = 'Join';
-const ERROR_NOT_MATCHED_PASSWORD = 'Password does not match.';
+const ERROR_NOT_MATCHED_PASSWORD = 'Passwords do not match.';
 const ERROR_EXIST_EMAIL = 'Your email already exists.';
-const ERROR_EXIST_USERNAME = 'Your email already exists.';
+const ERROR_EXIST_USERNAME = 'Your username already exists.';
 
 export function getJoin(req, res) {
   return res.render('join', { sectionTitle });
@@ -32,6 +32,7 @@ export async function postJoin(req, res) {
       .render('join', { sectionTitle, errorMessage: ERROR_EXIST_USERNAME });
   }
 
+  // Create user
   try {
     await User.create({
       email,
