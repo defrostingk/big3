@@ -4,6 +4,7 @@ block content
   include ../partials/header
   .container.join__container
     .join
+    span.error-message= errorMessage
       form.join__form(method='POST')
         input.join__email(
           name='email',
