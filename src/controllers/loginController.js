@@ -28,5 +28,9 @@ export async function postLogin(req, res) {
       .render('login', { sectionTitle, errorMessage: ERROR_WRONG_PASSWORD });
   }
 
+  // Session
+  req.session.loggedIn = true;
+  req.session.user = user;
+
   return res.redirect('/');
 }

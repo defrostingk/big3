@@ -5,8 +5,10 @@ block content
     .home
       include ../partials/title
       .greeting
-        h2 Hello, username
-        a.greeting__login-btn(href='/login') Login
+        if (loggedIn)
+          h2 Hello, #{ user.username }
+        if (!loggedIn)
+          a.greeting__login-btn(href='/login') Login
 
       .workout
         span.workout__title Today's Workout

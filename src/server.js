@@ -4,6 +4,7 @@ import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
 import router from './router';
 import morgan from 'morgan';
+import { localsMiddleware } from './middlewares';
 
 // Live Reload
 const liveReloadServer = livereload.createServer({
@@ -20,6 +21,8 @@ app.use(connectLivereload());
 app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/src/views/screens');
 app.use('/public', express.static(process.cwd() + '/src/public'));
+
+// Middlewares
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -29,6 +32,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(localsMiddleware);
 app.use('/', router);
 
 export default app;
