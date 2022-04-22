@@ -1,6 +1,7 @@
 .home {
   margin: auto;
   width: 100%;
+  max-width: var(--size-content-max-width);
 }
 
 .greeting,
@@ -21,17 +22,17 @@
 
 .greeting {
   font-size: var(--font-large);
-  padding: var(--size-padding-text);
-  border-bottom: 2px solid var(--color-pink);
   width: fit-content;
   color: var(--color-pink);
-  position: relative;
+}
+
+.greeting h2 {
+  padding: var(--size-padding-text);
+  width: 100%;
+  border-bottom: 2px solid var(--color-pink);
 }
 
 .greeting__login-btn {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
 }
 

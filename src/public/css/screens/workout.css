@@ -1,6 +1,9 @@
 .stopwatch,
-.break {
-  margin: auto;
+.break,
+.records {
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--size-content-max-width);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +47,7 @@
 }
 
 /* Break */
+
 .break__timer {
   font-size: calc(var(--font-header) * 1.8);
   border-radius: 50%;

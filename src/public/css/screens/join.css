@@ -1,7 +1,7 @@
 .join {
   margin: auto;
   width: 100%;
-  max-width: 500px;
+  max-width: var(--size-content-max-width);
 }
 
 .join__form {

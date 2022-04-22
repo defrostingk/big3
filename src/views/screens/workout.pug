@@ -23,46 +23,55 @@ block content
       button.break-end-btn End
 
   .container.records__container
-    button.load-btn
-      i.fa-solid.fa-plus
-      span Load my template
-    .records__board
-      .note
-        .note__header
-          span.note__title Bench press
-          span.note__category Chest
-        ul.note__contents
-          li.set__header
-          each num in [1,2,3,4,5]
-            li.note__set
-              input#setCheck.set-check(type='checkbox')
-              label(for='setCheck')
-              span.set-number= num
-              input.set-weight(type='text', value='60kg', placeholder='weight')
-              input.set-reps(type='text', value='5reps', placeholder='reps')
-              button.set-delete-btn
-                i.fa-solid.fa-xmark
-          button.set-add-btn
-            i.fa-solid.fa-plus
-      .note
-        .note__header
-          span.note__title Dips
-          span.note__category Chest
-        ul.note__contents
-          each num in [1,2,3,4,5]
-            li.note__set
-              input#setCheck.set-check(type='checkbox')
-              label(for='setCheck')
-              span.set-number= num
-              input.set-weight(type='text', value='free', placeholder='weight')
-              input.set-reps(type='text', value='15reps', placeholder='reps')
-              button.set-delete-btn
-                i.fa-solid.fa-xmark
-          button.set-add-btn
-            i.fa-solid.fa-plus
-      button.add-note-btn
+    .records
+      button.load-btn
         i.fa-solid.fa-plus
-        span Add a note
+        span Load my template
+      .records__board
+        .note
+          .note__header
+            span.note__title Bench press
+            span.note__category Chest
+          ul.note__contents
+            li.set__header
+            each num in [1,2,3,4,5]
+              li.note__set
+                input#setCheck.set-check(type='checkbox')
+                label(for='setCheck')
+                span.set-number= num
+                input.set-weight(
+                  type='text',
+                  value='60kg',
+                  placeholder='weight'
+                )
+                input.set-reps(type='text', value='5reps', placeholder='reps')
+                button.set-delete-btn
+                  i.fa-solid.fa-xmark
+            button.set-add-btn
+              i.fa-solid.fa-plus
+        .note
+          .note__header
+            span.note__title Dips
+            span.note__category Chest
+          ul.note__contents
+            each num in [1,2,3,4,5]
+              li.note__set
+                input#setCheck.set-check(type='checkbox')
+                label(for='setCheck')
+                span.set-number= num
+                input.set-weight(
+                  type='text',
+                  value='free',
+                  placeholder='weight'
+                )
+                input.set-reps(type='text', value='15reps', placeholder='reps')
+                button.set-delete-btn
+                  i.fa-solid.fa-xmark
+            button.set-add-btn
+              i.fa-solid.fa-plus
+        button.add-note-btn
+          i.fa-solid.fa-plus
+          span Add a note
 
   nav
     a.nav__stopwatch

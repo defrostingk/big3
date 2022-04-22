@@ -2,6 +2,12 @@
   align-items: flex-start;
 }
 
+.settings {
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+}
+
 .settings__section {
   width: 100%;
   margin-bottom: 30px;
