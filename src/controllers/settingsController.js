@@ -14,16 +14,19 @@ export function getSettings(req, res) {
 export function getSettingsBreakTime(req, res) {
   return res.render('./settings/break-time', {
     sectionTitle: TITLE_BREAK_TIME,
+    isSettings: true,
   });
 }
 export function getSettingsTemplate(req, res) {
   return res.render('./settings/template', {
     sectionTitle: TITLE_TEMPLATE,
+    isSettings: true,
   });
 }
 export function getSettingsRoutine(req, res) {
   return res.render('./settings/routine', {
     sectionTitle: TITLE_ROUTINE,
+    isSettings: true,
   });
 }
 
@@ -31,6 +34,7 @@ export function getSettingsRoutine(req, res) {
 export function getSettingsMyBody(req, res) {
   return res.render('./settings/my-body', {
     sectionTitle: TITLE_MY_BODY,
+    isSettings: true,
   });
 }
 
@@ -38,10 +42,12 @@ export function getSettingsMyBody(req, res) {
 export function getSettingsUser(req, res) {
   return res.render('./settings/user', {
     sectionTitle: TITLE_USER,
+    isSettings: true,
   });
 }
 export function getSettingsTheme(req, res) {
   return res.render('./settings/theme', {
     sectionTitle: TITLE_THEME,
+    isSettings: true,
   });
 }

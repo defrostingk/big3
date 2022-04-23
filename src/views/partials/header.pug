@@ -1,4 +1,12 @@
 header
-  a.button.header__home-btn(href='/')
-    i.fa-solid.fa-house
-  span.header__title= sectionTitle
+  if (!isSettings)
+    a.button.header__home-btn(href='/')
+      i.fa-solid.fa-house
+    span.header__title= sectionTitle
+
+  if (isSettings)
+    a.button.header__back-btn(href='/settings')
+      i.fa-solid.fa-arrow-left
+    span.header__title
+      i.header__icon.fa-solid.fa-gear
+    span.header__title= sectionTitle

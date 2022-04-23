@@ -13,7 +13,8 @@ header {
   color: var(--color-pink);
 }
 
-.header__home-btn {
+.header__home-btn,
+.header__back-btn {
   position: absolute;
   left: 5px;
   top: 5px;
@@ -27,4 +28,8 @@ header {
 
 .header__title {
   font-size: var(--font-large);
+}
+
+.header__title i {
+  margin-right: 5px;
 }
