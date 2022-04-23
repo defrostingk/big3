@@ -1,4 +1,4 @@
-import { redirect } from 'express/lib/response';
+import User from '../models/User';
 
 const sectionTitle = 'Settings';
 const TITLE_BREAK_TIME = 'Break time';
@@ -19,12 +19,14 @@ export function getSettingsBreakTime(req, res) {
     isSettings: true,
   });
 }
+
 export function getSettingsTemplate(req, res) {
   return res.render('./settings/template', {
     sectionTitle: TITLE_TEMPLATE,
     isSettings: true,
   });
 }
+
 export function getSettingsRoutine(req, res) {
   return res.render('./settings/routine', {
     sectionTitle: TITLE_ROUTINE,
@@ -40,8 +42,18 @@ export function getSettingsMyBody(req, res) {
   });
 }
 
-export function postSettingsMyBody(req, res) {
+export async function postSettingsMyBody(req, res) {
   console.log(req.body);
+  const { _id } = res.locals.loggedInUser;
+  const records = req.body;
+
+  const user = await User.findByIdAndUpdate(_id, {
+    records,
+  });
+
+  const updatedUser = await User.findOne({ _id });
+  req.session.loggedInUser = updatedUser;
+
   return res.redirect('/settings/my-body');
 }
 
@@ -52,6 +64,7 @@ export function getSettingsUser(req, res) {
     isSettings: true,
   });
 }
+
 export function getSettingsTheme(req, res) {
   return res.render('./settings/theme', {
     sectionTitle: TITLE_THEME,
