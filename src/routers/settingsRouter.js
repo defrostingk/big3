@@ -1,16 +1,28 @@
 import express from 'express';
-import { getSettings } from '../controllers/settingsController';
+import {
+  getSettings,
+  getSettingsBreakTime,
+  getSettingsMyBody,
+  getSettingsRoutine,
+  getSettingsTemplate,
+  getSettingsTheme,
+  getSettingsUser,
+} from '../controllers/settingsController';
 
 const settingsRouter = express.Router();
 
 settingsRouter.get('/', getSettings);
-// workout/break-time
-// workout/templates
-// workout/routine
 
-// my-info/my-body
+// Workout
+settingsRouter.get('/break-time', getSettingsBreakTime);
+settingsRouter.get('/template', getSettingsTemplate);
+settingsRouter.get('/routine', getSettingsRoutine);
 
-// general/user
-// general/theme
+// My info
+settingsRouter.get('/my-body', getSettingsMyBody);
+
+// General
+settingsRouter.get('/user', getSettingsUser);
+settingsRouter.get('/theme', getSettingsTheme);
 
 export default settingsRouter;
