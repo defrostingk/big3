@@ -21,12 +21,13 @@
   flex-direction: column;
 }
 
-.big3__header span:first-child {
+.big3__header .big3__title {
   font-size: var(--font-medium);
   margin-bottom: 5px;
   color: var(--color-light-grey);
 }
-.big3__header span:last-child,
+
+.big3__sum,
 .my-body__header,
 .target__header {
   font-size: var(--font-large);
@@ -40,4 +41,8 @@
   justify-content: space-between;
   margin-bottom: 8px;
   font-size: var(--font-regular);
+}
+
+.my-info-records span:first-child {
+  margin-right: 5px;
 }

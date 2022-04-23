@@ -21,6 +21,9 @@
 @import url('./screens/my-info.css');
 @import url('./screens/settings.css');
 
+/* Settings screens */
+@import url('./screens/settings/my-body.css');
+
 * {
   box-sizing: border-box;
   cursor: default;

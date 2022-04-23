@@ -5,47 +5,71 @@ block content
   .container.my-info__container
     .my-info
       .big3__header
-        span What are your big 3?
-        span 330kg
+        span.big3__title What are your big 3?
+        .big3__sum
+          span#sum 330
+          span.unit-weight kg
       .big3__contents
         .big3__squat
           span Squat
-          span 130kg
+          .my-info-records
+            span#squat 130
+            span.unit-weight kg
         .big3__bench-press
           span Bench press
-          span 80kg
+          .my-info-records
+            span#benchPress 80
+            span.unit-weight kg
         .big3__dead-lift
           span Dead lift
-          span 120kg
+          .my-info-records
+            span#deadLift 120
+            span.unit-weight kg
 
       span.my-body__header My body
       .my-body__contents
         .my-body__height
           span Height
-          span 172cm
+          .my-info-records
+            span#height 172
+            span.unit-length cm
         .my-body__weight
           span Weight
-          span 69.8kg
+          .my-info-records
+            span#weight 69.8
+            span.unit-weight kg
         .my-body__skeletal-muscle-mass
           span Skeletal muscle mass
-          span 33.4kg
+          .my-info-records
+            span#skeletalMuscelMass 33.4
+            span.unit-weight kg
         .my-body__body-fat-mass
           span Body fat mass
-          span 11.3kg
+          .my-info-records
+            span#bodyFatMass 11.3
+            span.unit-weight kg
         .my-body__percent-body-fat
           span Percent body fat
-          span 16.2%
+          .my-info-records
+            span#percentBodyFat 16.2
+            span.unit-percent %
 
       span.target__header Target
       .target__contents
         .target__weight
           span Weight
-          span 65kg
+          .my-info-records
+            span#targetWeight 65
+            span.unit-weight kg
         .target__skeletal-muscle-mass
           span Skeletal muscle mass
-          span 34kg
+          .my-info-records
+            span#targetSkeletalMuscleMass 34
+            span.unit-weight kg
         .target__percent-body-fat
           span Percent body fat
-          span 8%
+          .my-info-records
+            span#tartgetPercentBodyFat 8
+            span.unit-percent %
 
   include ../partials/navbar
