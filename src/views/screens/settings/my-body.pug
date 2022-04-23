@@ -7,23 +7,23 @@ block content
       .big3__header
         span.big3__title What are your big 3?
         .big3__sum
-          span 330
+          span #{ squat + benchPress+deadLift }
           span.unit-weight kg
       .big3__contents
         .big3__squat
           span Squat
           .my-records
-            input(name='squat', type='text', value='130', required)
+            input(name='squat', type='text', value=squat, required)
             span.unit-weight kg
         .big3__bench-press
           span Bench press
           .my-records
-            input(name='benchPress', type='text', value='80', required)
+            input(name='benchPress', type='text', value=benchPress, required)
             span.unit-weight kg
         .big3__dead-lift
           span Dead lift
           .my-records
-            input(name='deadLift', type='text', value='120', required)
+            input(name='deadLift', type='text', value=deadLift, required)
             span.unit-weight kg
 
       span.my-body__header My body
@@ -31,12 +31,12 @@ block content
         .my-body__height
           span Height
           .my-records
-            input(name='height', type='text', value='172', required)
+            input(name='height', type='text', value=height, required)
             span.unit-length cm
         .my-body__weight
           span Weight
           .my-records
-            input(name='weight', type='text', value='69.8', required)
+            input(name='weight', type='text', value=weight, required)
             span.unit-weight kg
         .my-body__skeletal-muscle-mass
           span Skeletal muscle mass
@@ -44,19 +44,24 @@ block content
             input(
               name='skeletalMuscleMass',
               type='text',
-              value='33.4',
+              value=skeletalMuscleMass,
               required
             )
             span.unit-weight kg
         .my-body__body-fat-mass
           span Body fat mass
           .my-records
-            input(name='bodyFatMass', type='text', value='11.3', required)
+            input(name='bodyFatMass', type='text', value=bodyFatMass, required)
             span.unit-weight kg
         .my-body__percent-body-fat
           span Percent body fat
           .my-records
-            input(name='percentBodyFat', type='text', value='16.2', required)
+            input(
+              name='percentBodyFat',
+              type='text',
+              value=percentBodyFat,
+              required
+            )
             span.unit-percent %
 
       span.target__header Target
@@ -64,7 +69,12 @@ block content
         .target__weight
           span Weight
           .my-records
-            input(name='targetWeight', type='text', value='65', required)
+            input(
+              name='targetWeight',
+              type='text',
+              value=targetWeight,
+              required
+            )
             span.unit-weight kg
         .target__skeletal-muscle-mass
           span Skeletal muscle mass
@@ -72,7 +82,7 @@ block content
             input(
               name='targetSkeletalMuscleMass',
               type='text',
-              value='34',
+              value=targetSkeletalMuscleMass,
               required
             )
             span.unit-weight kg
@@ -82,7 +92,7 @@ block content
             input(
               name='targetPercentBodyFat',
               type='text',
-              value='8',
+              value=targetPercentBodyFat,
               required
             )
             span.unit-percent %
