@@ -35,6 +35,11 @@
   padding: var(--size-padding-text);
   width: 100%;
   border-bottom: 2px solid var(--color-light-grey);
+  display: block;
+}
+
+.settings__item * {
+  cursor: pointer;
 }
 
 .settings__item i {
