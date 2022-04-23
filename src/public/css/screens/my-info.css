@@ -43,6 +43,11 @@
   font-size: var(--font-regular);
 }
 
-.my-info-records span:first-child {
+.my-records {
+  display: flex;
+  align-items: center;
+}
+
+.my-records span:first-child {
   margin-right: 5px;
 }

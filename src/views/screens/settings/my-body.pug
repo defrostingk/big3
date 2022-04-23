@@ -2,77 +2,91 @@ extends ../../base.pug
 
 block content
   include ../../partials/header
-  .container.settings-my-body__container
+  .container.settings__container
     form.settings-my-body(method='POST')
       .big3__header
-        span What are your big 3?
-        span#big3 330kg
+        span.big3__title What are your big 3?
+        .big3__sum
+          span#big3Sum 330
+          span.unit-weight kg
       .big3__contents
         .big3__squat
           span Squat
-          input(name='squat', type='text', value='130', required)
-          span kg
+          .my-records
+            input(name='squat', type='text', value='130', required)
+            span kg
         .big3__bench-press
           span Bench press
-          input(name='bench-press', type='text', value='80', required)
-          span kg
+          .my-records
+            input(name='bench-press', type='text', value='80', required)
+            span kg
         .big3__dead-lift
           span Dead lift
-          input(name='dead-lift', type='text', value='120', required)
-          span kg
+          .my-records
+            input(name='dead-lift', type='text', value='120', required)
+            span kg
 
       span.my-body__header My body
       .my-body__contents
         .my-body__height
           span Height
-          input(name='height', type='text', value='172', required)
-          span cm
+          .my-records
+            input(name='height', type='text', value='172', required)
+            span cm
         .my-body__weight
           span Weight
-          input(name='weight', type='text', value='69.8', required)
-          span kg
+          .my-records
+            input(name='weight', type='text', value='69.8', required)
+            span kg
         .my-body__skeletal-muscle-mass
           span Skeletal muscle mass
-          input(
-            name='skeletal-muscle-mass',
-            type='text',
-            value='33.4',
-            required
-          )
-          span kg
+          .my-records
+            input(
+              name='skeletal-muscle-mass',
+              type='text',
+              value='33.4',
+              required
+            )
+            span kg
         .my-body__body-fat-mass
           span Body fat mass
-          input(name='body-fat-mass', type='text', value='11.3', required)
-          span kg
+          .my-records
+            input(name='body-fat-mass', type='text', value='11.3', required)
+            span kg
         .my-body__percent-body-fat
           span Percent body fat
-          input(name='percent-body-fat', type='text', value='16.2', required)
-          span %
+          .my-records
+            input(name='percent-body-fat', type='text', value='16.2', required)
+            span %
 
       span.target__header Target
       .target__contents
         .target__weight
           span Weight
-          input(name='target-weight', type='text', value='65', required)
-          span kg
+          .my-records
+            input(name='target-weight', type='text', value='65', required)
+            span kg
         .target__skeletal-muscle-mass
           span Skeletal muscle mass
-          input(
-            name='target-skeletal-muscle-mass',
-            type='text',
-            value='34',
-            required
-          )
-          span kg
+          .my-records
+            input(
+              name='target-skeletal-muscle-mass',
+              type='text',
+              value='34',
+              required
+            )
+            span kg
         .target__percent-body-fat
           span Percent body fat
-          input(
-            name='target-percent-body-fat',
-            type='text',
-            value='8',
-            required
-          )
-          span %
+          .my-records
+            input(
+              name='target-percent-body-fat',
+              type='text',
+              value='8',
+              required
+            )
+            span %
 
       input.button.save-my-body-btn(type='submit', value='Save')
+
   include ../../partials/footer
