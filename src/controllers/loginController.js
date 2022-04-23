@@ -1,6 +1,5 @@
 import User from '../models/User';
 import bcrypt from 'bcrypt';
-import res from 'express/lib/response';
 
 const sectionTitle = 'Login';
 const ERROR_NOT_EXIST_USER = 'Your email does not exist.';
