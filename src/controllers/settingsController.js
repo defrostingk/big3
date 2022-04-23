@@ -1,3 +1,5 @@
+import { redirect } from 'express/lib/response';
+
 const sectionTitle = 'Settings';
 const TITLE_BREAK_TIME = 'Break time';
 const TITLE_TEMPLATE = 'Template';
@@ -36,6 +38,11 @@ export function getSettingsMyBody(req, res) {
     sectionTitle: TITLE_MY_BODY,
     isSettings: true,
   });
+}
+
+export function postSettingsMyBody(req, res) {
+  console.log(req.body);
+  return res.redirect('/settings/my-body');
 }
 
 // General

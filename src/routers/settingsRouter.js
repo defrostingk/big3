@@ -7,6 +7,7 @@ import {
   getSettingsTemplate,
   getSettingsTheme,
   getSettingsUser,
+  postSettingsMyBody,
 } from '../controllers/settingsController';
 
 const settingsRouter = express.Router();
@@ -19,7 +20,10 @@ settingsRouter.get('/template', getSettingsTemplate);
 settingsRouter.get('/routine', getSettingsRoutine);
 
 // My info
-settingsRouter.get('/my-body', getSettingsMyBody);
+settingsRouter
+  .route('/my-body')
+  .get(getSettingsMyBody)
+  .post(postSettingsMyBody);
 
 // General
 settingsRouter.get('/user', getSettingsUser);
