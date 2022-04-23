@@ -7,23 +7,23 @@ block content
       .big3__header
         span.big3__title What are your big 3?
         .big3__sum
-          span#big3 #{ squat + benchPress + deadLift }
+          span #{ squat + benchPress + deadLift }
           span.unit-weight kg
       .big3__contents
         .big3__squat
           span Squat
           .my-records
-            span#squat= squat
+            span= squat
             span.unit-weight kg
         .big3__bench-press
           span Bench press
           .my-records
-            span#benchPress= benchPress
+            span= benchPress
             span.unit-weight kg
         .big3__dead-lift
           span Dead lift
           .my-records
-            span#deadLift= deadLift
+            span= deadLift
             span.unit-weight kg
 
       span.my-body__header My body
@@ -31,27 +31,27 @@ block content
         .my-body__height
           span Height
           .my-records
-            span#height= height
+            span= height
             span.unit-length cm
         .my-body__weight
           span Weight
           .my-records
-            span#weight= weight
+            span= weight
             span.unit-weight kg
         .my-body__skeletal-muscle-mass
           span Skeletal muscle mass
           .my-records
-            span#skeletalMuscleMass= skeletalMuscleMass
+            span= skeletalMuscleMass
             span.unit-weight kg
         .my-body__body-fat-mass
           span Body fat mass
           .my-records
-            span#bodyFatMass= bodyFatMass
+            span= bodyFatMass
             span.unit-weight kg
         .my-body__percent-body-fat
           span Percent body fat
           .my-records
-            span#percentBodyFat= percentBodyFat
+            span= percentBodyFat
             span.unit-percent %
 
       span.target__header Target
@@ -59,17 +59,17 @@ block content
         .target__weight
           span Weight
           .my-records
-            span#targetWeight= targetWeight
+            span= targetWeight
             span.unit-weight kg
         .target__skeletal-muscle-mass
           span Skeletal muscle mass
           .my-records
-            span#targetSkeletalMuscleMass= targetSkeletalMuscleMass
+            span= targetSkeletalMuscleMass
             span.unit-weight kg
         .target__percent-body-fat
           span Percent body fat
           .my-records
-            span#targetPercentBodyFat= targetPercentBodyFat
+            span= targetPercentBodyFat
             span.unit-percent %
 
   include ../partials/navbar
