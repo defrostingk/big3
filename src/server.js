@@ -3,6 +3,7 @@ import session from 'express-session';
 import livereload from 'livereload';
 import connectLivereload from 'connect-livereload';
 import rootRouter from './routers/rootRouter';
+import settingsRouter from './routers/settingsRouter';
 import morgan from 'morgan';
 import MongoStore from 'connect-mongo';
 import { localsMiddleware } from './middlewares';
@@ -38,5 +39,7 @@ app.use(localsMiddleware);
 
 // Routers
 app.use('/', rootRouter);
+app.use('/settings', settingsRouter);
+app.get('/*', (req, res) => res.redirect('/'));
 
 export default app;
