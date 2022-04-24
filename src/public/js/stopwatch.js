@@ -99,12 +99,15 @@ function switchScreen(screen) {
 
   if (screen === TITLE_STOPWATCH) {
     setHeaderTitle(TITLE_STOPWATCH);
+    selectNavbarMenu(TITLE_STOPWATCH);
     containerStopwatch.style.display = 'flex';
   } else if (screen === TITLE_Break) {
     setHeaderTitle(TITLE_STOPWATCH);
+    selectNavbarMenu(TITLE_STOPWATCH);
     containerBreak.style.display = 'flex';
   } else if (screen === TITLE_RECORDS) {
     setHeaderTitle(TITLE_RECORDS);
+    selectNavbarMenu(TITLE_RECORDS);
     containerRecords.style.display = 'flex';
   }
 }
@@ -112,7 +115,9 @@ function switchScreen(screen) {
 function setHeaderTitle(title) {
   const headerTitle = document.querySelector('.header__title');
   headerTitle.innerText = title;
+}
 
+function selectNavbarMenu(title) {
   navbarMenus.forEach((navbarMenu) => {
     const navbarMenuTitle = navbarMenu.querySelector('span');
     if (title === navbarMenuTitle.innerText) {
@@ -138,7 +143,7 @@ function initStopwatchInterval() {
       centisecond++;
       const time = getTime(centisecond);
       setTime(stopwatchTime, time);
-      if (startStopwatchPure) {
+      if (startStopwatchPure && !startBreak) {
         if (CENTI_SECONDS_IN_A_DAY - 2 < centisecondPure) return;
         centisecondPure++;
         const timePure = getTime(centisecondPure);
