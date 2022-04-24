@@ -10,25 +10,28 @@ const stopwatchTime = document.querySelector('.stopwatch__time');
 const stopwatchTimePure = document.querySelector('.stopwatch__time--pure');
 const startBtn = document.querySelector('.start-btn');
 const resetBtn = document.querySelector('.reset-btn');
+let centisecond = 0;
+let centisecondPure = 0;
+let startStopwatch = false;
+let startInterval = false;
+
+const CENTI_SECONDS_IN_A_SECOND = 100;
+
+const SECONDS_IN_A_MINUTE = 60;
+const CENTI_SECONDS_IN_A_MINUTE =
+  CENTI_SECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE;
+
+const MINUTES_IN_A_HOUR = 60;
+const CENTI_SECONDS_IN_A_HOUR = CENTI_SECONDS_IN_A_MINUTE * MINUTES_IN_A_HOUR;
+
+const HOURS_IN_A_DAY = 24;
+const CENTI_SECONDS_IN_A_DAY = CENTI_SECONDS_IN_A_HOUR * HOURS_IN_A_DAY;
 
 // Break
 const breakBtn = document.querySelector('.break-btn');
 const breakEndBtn = document.querySelector('.break-end-btn');
 
-// start 시작 / puase 일시정지
 // break 순수 운동 시간 멈추고 화면 전환
-// reset 초기화
-
-// ????????
-// 아래를 하려면
-// stopwatchTime, stopwatchTimePure은
-// 전체 container를 form으로 변경해야..
-// quit, home을 input, submit으로 변경해서 post해야한다.
-
-// home 현재 시간을 res.locals.currentStopwatchTime,
-// res.locals.currentStopwatchTimePure에 저장하고 정지,
-// pug에서 locals.currentStopwatchTime,
-// res.locals.currentStopwatchTimePure을 stopwatch에 set
 
 initStopwatch();
 
@@ -42,11 +45,18 @@ navbarMenus.forEach((navbarMenu) =>
 
 // Stopwatch start
 startBtn.addEventListener('click', () => {
-  startBtn.innerText = startBtn.innerText === 'Start' ? 'Pause' : 'Start';
+  toggleBtn();
+  startStopwatch = !startStopwatch;
+  if (!startInterval) {
+    initInterval();
+    startInterval = true;
+  }
 });
 
 // Stopwatch reset
 resetBtn.addEventListener('click', () => {
+  startStopwatch = false;
+  resetTime();
   initBtn();
   clearTime();
 });
@@ -103,11 +113,51 @@ function initStopwatch() {
   clearTime();
 }
 
+function initInterval() {
+  setInterval(() => {
+    if (startStopwatch) {
+      if (CENTI_SECONDS_IN_A_DAY - 1 < centisecond) return;
+      centisecond++;
+      centisecondPure++;
+      console.log(Math.floor(centisecond / 100));
+      const time = getTime(centisecond);
+      const timePure = getTime(centisecondPure);
+      setTime(stopwatchTime, time);
+      setTime(stopwatchTimePure, timePure);
+    }
+  }, 10);
+}
+
+function initBtn() {
+  startBtn.innerText = 'Start';
+}
+
+function toggleBtn() {
+  startBtn.innerText = startBtn.innerText === 'Start' ? 'Pause' : 'Start';
+}
+
+function resetTime() {
+  centisecond = 0;
+  centisecondPure = 0;
+}
+
 function clearTime() {
   stopwatchTime.innerText = '00:00:00.00';
   stopwatchTimePure.innerText = '00:00:00.00';
 }
 
-function initBtn() {
-  startBtn.innerText = 'Start';
+function getTime(centiSec) {
+  let remainder = centiSec;
+  const hours = Math.floor(remainder / CENTI_SECONDS_IN_A_HOUR);
+  remainder = remainder % CENTI_SECONDS_IN_A_HOUR;
+  const minutes = Math.floor(remainder / CENTI_SECONDS_IN_A_MINUTE);
+  remainder = remainder % CENTI_SECONDS_IN_A_MINUTE;
+  const seconds = Math.floor(remainder / CENTI_SECONDS_IN_A_SECOND);
+  const centiSeconds = remainder % CENTI_SECONDS_IN_A_SECOND;
+
+  return `${hours}:${minutes}:${seconds}.${centiSeconds}`;
+}
+
+function setTime(timeElement, time) {
+  timeElement.innerText = time;
 }
