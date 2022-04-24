@@ -1,23 +1,34 @@
-const stopwatchTime = document.querySelector('.stopwatch__time');
-const stopwatchTimePure = document.querySelector('.stopwatch__time--pure');
-
 const navbar = document.querySelector('nav');
 const navbarMenus = navbar.querySelectorAll('a');
-const breakBtn = document.querySelector('.break-btn');
-const breakEndBtn = document.querySelector('.break-end-btn');
 
 const TITLE_STOPWATCH = 'Stopwatch';
 const TITLE_Break = 'Break';
 const TITLE_RECORDS = 'Records';
 
-// 이후의 멀티태스킹을 위해 date.now로 구현해야 한다.
-// 그럼 변수를 서버에 보내 저장해야하고..
+// Stopwatch
+const stopwatchTime = document.querySelector('.stopwatch__time');
+const stopwatchTimePure = document.querySelector('.stopwatch__time--pure');
+const startBtn = document.querySelector('.start-btn');
+const resetBtn = document.querySelector('.reset-btn');
+
+// Break
+const breakBtn = document.querySelector('.break-btn');
+const breakEndBtn = document.querySelector('.break-end-btn');
+
 // start 시작 / puase 일시정지
 // break 순수 운동 시간 멈추고 화면 전환
 // reset 초기화
-// quit 정지
-// home 작동 중이라면 현재 시간 저장, 다시 들어올 때 (현재 시간-과거 시간)
-// 작동 중이 아니라면 다시 들어올 때 (과거시간)
+
+// ????????
+// 아래를 하려면
+// stopwatchTime, stopwatchTimePure은
+// 전체 container를 form으로 변경해야..
+// quit, home을 input, submit으로 변경해서 post해야한다.
+
+// home 현재 시간을 res.locals.currentStopwatchTime,
+// res.locals.currentStopwatchTimePure에 저장하고 정지,
+// pug에서 locals.currentStopwatchTime,
+// res.locals.currentStopwatchTimePure을 stopwatch에 set
 
 initStopwatch();
 
@@ -29,11 +40,23 @@ navbarMenus.forEach((navbarMenu) =>
   })
 );
 
+// Stopwatch start
+startBtn.addEventListener('click', () => {
+  startBtn.innerText = startBtn.innerText === 'Start' ? 'Pause' : 'Start';
+});
+
+// Stopwatch reset
+resetBtn.addEventListener('click', () => {
+  initBtn();
+  clearTime();
+});
+
 // Start break
 breakBtn.addEventListener('click', () => {
   switchScreen(TITLE_Break);
 });
 
+// End break
 breakEndBtn.addEventListener('click', () => {
   switchScreen(TITLE_STOPWATCH);
 });
@@ -76,6 +99,15 @@ function setHeaderTitle(title) {
 
 function initStopwatch() {
   switchScreen(TITLE_STOPWATCH);
+  initBtn();
+  clearTime();
+}
+
+function clearTime() {
   stopwatchTime.innerText = '00:00:00.00';
   stopwatchTimePure.innerText = '00:00:00.00';
+}
+
+function initBtn() {
+  startBtn.innerText = 'Start';
 }

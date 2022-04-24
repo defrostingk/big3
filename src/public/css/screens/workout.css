@@ -33,27 +33,23 @@
 .stopwatch__buttons {
   max-width: var(--size-content-max-width);
   width: 100%;
-}
-.stopwatch__buttons-basic,
-.stopwatch__buttons-danger {
   display: flex;
+  flex-direction: column;
 }
 
-.stopwatch__buttons button,
-.stopwatch__buttons .button {
-  margin: 5px;
+.stopwatch__buttons button {
   width: 100%;
+  margin: 5px;
 }
 
-.quit-btn {
+.reset-btn {
+  color: var(--color-pink);
   background-color: var(--color-white);
-  color: var(--color-red);
-  display: block;
 }
-.quit-btn:hover {
-  background-color: var(--color-red);
-  border-color: var(--color-red);
+
+.reset-btn:hover {
   color: var(--color-white);
+  background-color: var(--color-pink);
 }
 
 /* Break */
