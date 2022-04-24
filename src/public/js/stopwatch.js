@@ -12,8 +12,9 @@ const startBtn = document.querySelector('.start-btn');
 const resetBtn = document.querySelector('.reset-btn');
 let centisecond = 0;
 let centisecondPure = 0;
-let startStopwatch = false;
 let startInterval = false;
+let startStopwatch = false;
+let startStopwatchPure = false;
 
 const CENTI_SECONDS_IN_A_SECOND = 100;
 
@@ -47,6 +48,7 @@ navbarMenus.forEach((navbarMenu) =>
 startBtn.addEventListener('click', () => {
   toggleBtn();
   startStopwatch = !startStopwatch;
+  startStopwatchPure = !startStopwatchPure;
   if (!startInterval) {
     initInterval();
     startInterval = true;
@@ -56,6 +58,7 @@ startBtn.addEventListener('click', () => {
 // Stopwatch reset
 resetBtn.addEventListener('click', () => {
   startStopwatch = false;
+  startStopwatchPure = false;
   resetTime();
   initBtn();
   clearTime();
@@ -64,11 +67,13 @@ resetBtn.addEventListener('click', () => {
 // Start break
 breakBtn.addEventListener('click', () => {
   switchScreen(TITLE_Break);
+  startStopwatchPure = false;
 });
 
 // End break
 breakEndBtn.addEventListener('click', () => {
   switchScreen(TITLE_STOPWATCH);
+  startStopwatchPure = true;
 });
 
 function switchScreen(screen) {
@@ -118,11 +123,13 @@ function initInterval() {
     if (startStopwatch) {
       if (CENTI_SECONDS_IN_A_DAY - 1 < centisecond) return;
       centisecond++;
-      centisecondPure++;
-      console.log(Math.floor(centisecond / 100));
       const time = getTime(centisecond);
-      const timePure = getTime(centisecondPure);
       setTime(stopwatchTime, time);
+    }
+    if (startStopwatchPure) {
+      if (CENTI_SECONDS_IN_A_DAY - 1 < centisecondPure) return;
+      centisecondPure++;
+      const timePure = getTime(centisecondPure);
       setTime(stopwatchTimePure, timePure);
     }
   }, 10);
@@ -148,16 +155,26 @@ function clearTime() {
 
 function getTime(centiSec) {
   let remainder = centiSec;
-  const hours = Math.floor(remainder / CENTI_SECONDS_IN_A_HOUR);
+  const hours = addZeroTime(Math.floor(remainder / CENTI_SECONDS_IN_A_HOUR));
   remainder = remainder % CENTI_SECONDS_IN_A_HOUR;
-  const minutes = Math.floor(remainder / CENTI_SECONDS_IN_A_MINUTE);
+  const minutes = addZeroTime(
+    Math.floor(remainder / CENTI_SECONDS_IN_A_MINUTE)
+  );
   remainder = remainder % CENTI_SECONDS_IN_A_MINUTE;
-  const seconds = Math.floor(remainder / CENTI_SECONDS_IN_A_SECOND);
-  const centiSeconds = remainder % CENTI_SECONDS_IN_A_SECOND;
+  const seconds = addZeroTime(
+    Math.floor(remainder / CENTI_SECONDS_IN_A_SECOND)
+  );
+  const centiSeconds = addZeroTime(remainder % CENTI_SECONDS_IN_A_SECOND);
 
   return `${hours}:${minutes}:${seconds}.${centiSeconds}`;
+}
+
+function addZeroTime(time) {
+  return time < 10 ? `0${time}` : time;
 }
 
 function setTime(timeElement, time) {
   timeElement.innerText = time;
 }
+
+// Stopwatch 00:00:00.00으로 다듬기
