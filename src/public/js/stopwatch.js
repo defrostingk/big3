@@ -82,7 +82,7 @@ breakBtn.addEventListener('click', () => {
 breakEndBtn.addEventListener('click', () => {
   initBreakBtn();
   switchScreen(TITLE_STOPWATCH);
-  startStopwatchPure = true;
+  startStopwatchPure = startStopwatch ? true : false;
   startBreak = false;
   second = 0;
   breakRemain.innerText = second;
@@ -154,7 +154,10 @@ function initBreakInterval() {
       if (Number(breakTotal.innerText) - 1 < second) return;
       second++;
       breakRemain.innerText = second;
-
+    }
+  }, 1000);
+  setInterval(() => {
+    if (startBreak) {
       breakBtn.style.color =
         breakBtn.style.color === 'var(--color-white)'
           ? 'var(--color-pink)'
@@ -165,7 +168,7 @@ function initBreakInterval() {
           ? 'var(--color-pink)'
           : 'var(--color-white)';
     }
-  }, 1000);
+  }, 500);
 }
 
 function initStartBtn() {
