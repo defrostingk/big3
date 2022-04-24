@@ -10,29 +10,31 @@ const stopwatchTime = document.querySelector('.stopwatch__time');
 const stopwatchTimePure = document.querySelector('.stopwatch__time--pure');
 const startBtn = document.querySelector('.start-btn');
 const resetBtn = document.querySelector('.reset-btn');
+
 let centisecond = 0;
 let centisecondPure = 0;
-let startInterval = false;
+let startStopwatchInterval = false;
 let startStopwatch = false;
 let startStopwatchPure = false;
 
 const CENTI_SECONDS_IN_A_SECOND = 100;
-
 const SECONDS_IN_A_MINUTE = 60;
 const CENTI_SECONDS_IN_A_MINUTE =
   CENTI_SECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE;
-
 const MINUTES_IN_A_HOUR = 60;
 const CENTI_SECONDS_IN_A_HOUR = CENTI_SECONDS_IN_A_MINUTE * MINUTES_IN_A_HOUR;
-
 const HOURS_IN_A_DAY = 24;
 const CENTI_SECONDS_IN_A_DAY = CENTI_SECONDS_IN_A_HOUR * HOURS_IN_A_DAY;
 
 // Break
 const breakBtn = document.querySelector('.break-btn');
 const breakEndBtn = document.querySelector('.break-end-btn');
+const breakTotal = document.querySelector('.total-time');
+const breakRemain = document.querySelector('.remain-time');
 
-// break 순수 운동 시간 멈추고 화면 전환
+let startBreakInterval = false;
+let startBreak = false;
+let second = 0;
 
 initStopwatch();
 
@@ -49,9 +51,9 @@ startBtn.addEventListener('click', () => {
   toggleBtn();
   startStopwatch = !startStopwatch;
   startStopwatchPure = !startStopwatchPure;
-  if (!startInterval) {
-    initInterval();
-    startInterval = true;
+  if (!startStopwatchInterval) {
+    initStopwatchInterval();
+    startStopwatchInterval = true;
   }
 });
 
@@ -60,20 +62,30 @@ resetBtn.addEventListener('click', () => {
   startStopwatch = false;
   startStopwatchPure = false;
   resetTime();
-  initBtn();
+  initStartBtn();
   clearTime();
 });
 
 // Start break
 breakBtn.addEventListener('click', () => {
+  initBreakBtn();
   switchScreen(TITLE_Break);
   startStopwatchPure = false;
+  if (!startBreakInterval) {
+    initBreakInterval();
+    startBreakInterval = true;
+  }
+  startBreak = true;
 });
 
 // End break
 breakEndBtn.addEventListener('click', () => {
+  initBreakBtn();
   switchScreen(TITLE_STOPWATCH);
   startStopwatchPure = true;
+  startBreak = false;
+  second = 0;
+  breakRemain.innerText = second;
 });
 
 function switchScreen(screen) {
@@ -114,29 +126,55 @@ function setHeaderTitle(title) {
 
 function initStopwatch() {
   switchScreen(TITLE_STOPWATCH);
-  initBtn();
+  initStartBtn();
   clearTime();
+  breakRemain.innerText = '0';
 }
 
-function initInterval() {
+function initStopwatchInterval() {
   setInterval(() => {
     if (startStopwatch) {
-      if (CENTI_SECONDS_IN_A_DAY - 1 < centisecond) return;
+      if (CENTI_SECONDS_IN_A_DAY - 2 < centisecond) return;
       centisecond++;
       const time = getTime(centisecond);
       setTime(stopwatchTime, time);
-    }
-    if (startStopwatchPure) {
-      if (CENTI_SECONDS_IN_A_DAY - 1 < centisecondPure) return;
-      centisecondPure++;
-      const timePure = getTime(centisecondPure);
-      setTime(stopwatchTimePure, timePure);
+      if (startStopwatchPure) {
+        if (CENTI_SECONDS_IN_A_DAY - 2 < centisecondPure) return;
+        centisecondPure++;
+        const timePure = getTime(centisecondPure);
+        setTime(stopwatchTimePure, timePure);
+      }
     }
   }, 10);
 }
 
-function initBtn() {
+function initBreakInterval() {
+  setInterval(() => {
+    if (startBreak) {
+      if (Number(breakTotal.innerText) - 1 < second) return;
+      second++;
+      breakRemain.innerText = second;
+
+      breakBtn.style.color =
+        breakBtn.style.color === 'var(--color-white)'
+          ? 'var(--color-pink)'
+          : 'var(--color-white)';
+
+      breakBtn.style.backgroundColor =
+        breakBtn.style.backgroundColor === 'var(--color-white)'
+          ? 'var(--color-pink)'
+          : 'var(--color-white)';
+    }
+  }, 1000);
+}
+
+function initStartBtn() {
   startBtn.innerText = 'Start';
+}
+
+function initBreakBtn() {
+  breakBtn.style.color = 'var(--color-white)';
+  breakBtn.style.backgroundColor = 'var(--color-pink)';
 }
 
 function toggleBtn() {
@@ -176,5 +214,3 @@ function addZeroTime(time) {
 function setTime(timeElement, time) {
   timeElement.innerText = time;
 }
-
-// Stopwatch 00:00:00.00으로 다듬기
