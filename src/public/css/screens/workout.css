@@ -39,14 +39,16 @@
   display: flex;
 }
 
-.stopwatch__buttons button {
+.stopwatch__buttons button,
+.stopwatch__buttons .button {
   margin: 5px;
   width: 100%;
 }
 
 .quit-btn {
   background-color: var(--color-white);
-  color: var(--color-pink);
+  color: var(--color-red);
+  display: block;
 }
 .quit-btn:hover {
   background-color: var(--color-red);
