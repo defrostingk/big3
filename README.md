@@ -1,6 +1,6 @@
 # 🏋️‍♂️ 삼대몇? 🏋️‍♀️
 
-<a href="#" target="_blank">Go to use '삼대몇?'</a>
+<a href="https://big3-workout-manager.herokuapp.com/" target="_blank">Go to use '삼대몇?'</a>
 
 ## Contents
 

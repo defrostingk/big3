@@ -12,6 +12,7 @@ const rootRouter = express.Router();
 rootRouter.get('/', getHome);
 rootRouter.route('/join').get(getJoin).post(postJoin);
 rootRouter.route('/login').get(getLogin).post(postLogin);
+
 rootRouter.route('/logout').all(checkUserMiddleware).get(getLogout);
 rootRouter.route('/workout').all(checkUserMiddleware).get(getWorkout);
 rootRouter.route('/calendar').all(checkUserMiddleware).get(getCalendar);
