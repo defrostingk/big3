@@ -13,7 +13,7 @@ const resetBtn = document.querySelector('.reset-btn');
 
 let centisecond = 0;
 let centisecondPure = 0;
-let startStopwatchInterval = false;
+let stopwatchInterval;
 let startStopwatch = false;
 let startStopwatchPure = false;
 
@@ -32,7 +32,8 @@ const breakEndBtn = document.querySelector('.break-end-btn');
 const breakTotal = document.querySelector('.total-time');
 const breakRemain = document.querySelector('.remain-time');
 
-let startBreakInterval = false;
+let breakInterval;
+let breakBtnInterval;
 let startBreak = false;
 let second = 0;
 
@@ -49,18 +50,20 @@ navbarMenus.forEach((navbarMenu) =>
 // Stopwatch start
 startBtn.addEventListener('click', () => {
   toggleBtn();
+  if (!startStopwatch) {
+    startStopwatchInterval();
+  } else {
+    clearInterval(stopwatchInterval);
+  }
   startStopwatch = !startStopwatch;
   startStopwatchPure = !startStopwatchPure;
-  if (!startStopwatchInterval) {
-    initStopwatchInterval();
-    startStopwatchInterval = true;
-  }
 });
 
 // Stopwatch reset
 resetBtn.addEventListener('click', () => {
   startStopwatch = false;
   startStopwatchPure = false;
+  clearInterval(stopwatchInterval);
   resetTime();
   initStartBtn();
   clearTime();
@@ -71,9 +74,8 @@ breakBtn.addEventListener('click', () => {
   initBreakBtn();
   switchScreen(TITLE_Break);
   startStopwatchPure = false;
-  if (!startBreakInterval) {
-    initBreakInterval();
-    startBreakInterval = true;
+  if (!startBreak) {
+    startBreakInterval();
   }
   startBreak = true;
 });
@@ -85,6 +87,8 @@ breakEndBtn.addEventListener('click', () => {
   switchScreen(TITLE_STOPWATCH);
   startStopwatchPure = startStopwatch ? true : false;
   startBreak = false;
+  clearInterval(breakInterval);
+  clearInterval(breakBtnInterval);
   second = 0;
   breakRemain.innerText = second;
 });
@@ -137,8 +141,8 @@ function initStopwatch() {
   breakRemain.innerText = '0';
 }
 
-function initStopwatchInterval() {
-  setInterval(() => {
+function startStopwatchInterval() {
+  stopwatchInterval = setInterval(() => {
     if (startStopwatch) {
       if (CENTI_SECONDS_IN_A_DAY - 2 < centisecond) return;
       centisecond++;
@@ -154,15 +158,15 @@ function initStopwatchInterval() {
   }, 10);
 }
 
-function initBreakInterval() {
-  setInterval(() => {
+function startBreakInterval() {
+  breakInterval = setInterval(() => {
     if (startBreak) {
       if (Number(breakTotal.innerText) - 1 < second) return;
       second++;
       breakRemain.innerText = second;
     }
   }, 1000);
-  setInterval(() => {
+  breakBtnInterval = setInterval(() => {
     if (startBreak) {
       breakBtn.style.color =
         breakBtn.style.color === 'var(--color-white)'
