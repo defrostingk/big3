@@ -52,19 +52,20 @@ export function getSettingsMyBody(req, res) {
     res.locals.targetWeight = user.records.targetWeight;
     res.locals.targetSkeletalMuscleMass = user.records.targetSkeletalMuscleMass;
     res.locals.targetPercentBodyFat = user.records.targetPercentBodyFat;
+  } else {
+    res.locals.big3 = 0;
+    res.locals.squat = 0;
+    res.locals.benchPress = 0;
+    res.locals.deadLift = 0;
+    res.locals.height = 0;
+    res.locals.weight = 0;
+    res.locals.skeletalMuscleMass = 0;
+    res.locals.bodyFatMass = 0;
+    res.locals.percentBodyFat = 0;
+    res.locals.targetWeight = 0;
+    res.locals.targetSkeletalMuscleMass = 0;
+    res.locals.targetPercentBodyFat = 0;
   }
-  res.locals.big3 = 0;
-  res.locals.squat = 0;
-  res.locals.benchPress = 0;
-  res.locals.deadLift = 0;
-  res.locals.height = 0;
-  res.locals.weight = 0;
-  res.locals.skeletalMuscleMass = 0;
-  res.locals.bodyFatMass = 0;
-  res.locals.percentBodyFat = 0;
-  res.locals.targetWeight = 0;
-  res.locals.targetSkeletalMuscleMass = 0;
-  res.locals.targetPercentBodyFat = 0;
 
   return res.render('./settings/my-body', {
     sectionTitle: TITLE_MY_BODY,
@@ -73,7 +74,6 @@ export function getSettingsMyBody(req, res) {
 }
 
 export async function postSettingsMyBody(req, res) {
-  console.log(req.body);
   const { _id } = res.locals.loggedInUser;
   const records = req.body;
 
