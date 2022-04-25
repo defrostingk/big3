@@ -4,3 +4,12 @@ export function localsMiddleware(req, res, next) {
   res.locals.loggedInUser = req.session.loggedInUser;
   next();
 }
+
+export function checkUserMiddleware(req, res, next) {
+  if (res.locals.loggedIn) {
+    next();
+  } else {
+    req.flash('error', 'You have to log in first.');
+    return res.redirect('/login');
+  }
+}

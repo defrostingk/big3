@@ -4,6 +4,7 @@ import rootRouter from './routers/rootRouter';
 import settingsRouter from './routers/settingsRouter';
 import morgan from 'morgan';
 import MongoStore from 'connect-mongo';
+import flash from 'express-flash';
 import { localsMiddleware } from './middlewares';
 
 // Logger
@@ -17,6 +18,7 @@ app.set('views', process.cwd() + '/src/views/screens');
 // Middlewares
 app.use('/static', express.static(process.cwd() + '/src/public'));
 app.use(logger);
+app.use(flash());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
