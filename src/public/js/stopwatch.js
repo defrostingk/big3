@@ -81,6 +81,7 @@ breakBtn.addEventListener('click', () => {
 // End break
 breakEndBtn.addEventListener('click', () => {
   initBreakBtn();
+  breakBtn.removeAttribute('style');
   switchScreen(TITLE_STOPWATCH);
   startStopwatchPure = startStopwatch ? true : false;
   startBreak = false;
