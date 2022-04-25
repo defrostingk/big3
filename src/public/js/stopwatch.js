@@ -67,11 +67,12 @@ resetBtn.addEventListener('click', () => {
   resetTime();
   initStartBtn();
   clearTime();
+  resetBreak();
 });
 
 // Start break
 breakBtn.addEventListener('click', () => {
-  initBreakBtn();
+  setBreakBtnStyle();
   switchScreen(TITLE_Break);
   startStopwatchPure = false;
   if (!startBreak) {
@@ -82,15 +83,9 @@ breakBtn.addEventListener('click', () => {
 
 // End break
 breakEndBtn.addEventListener('click', () => {
-  initBreakBtn();
-  breakBtn.removeAttribute('style');
   switchScreen(TITLE_STOPWATCH);
   startStopwatchPure = startStopwatch ? true : false;
-  startBreak = false;
-  clearInterval(breakInterval);
-  clearInterval(breakBtnInterval);
-  second = 0;
-  breakRemain.innerText = second;
+  resetBreak();
 });
 
 function switchScreen(screen) {
@@ -185,7 +180,7 @@ function initStartBtn() {
   startBtn.innerText = 'Start';
 }
 
-function initBreakBtn() {
+function setBreakBtnStyle() {
   breakBtn.style.color = 'var(--color-white)';
   breakBtn.style.backgroundColor = 'var(--color-pink)';
 }
@@ -197,6 +192,15 @@ function toggleBtn() {
 function resetTime() {
   centisecond = 0;
   centisecondPure = 0;
+}
+
+function resetBreak() {
+  startBreak = false;
+  breakBtn.removeAttribute('style');
+  clearInterval(breakInterval);
+  clearInterval(breakBtnInterval);
+  second = 0;
+  breakRemain.innerText = second;
 }
 
 function clearTime() {
