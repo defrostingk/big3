@@ -11,8 +11,8 @@ const stopwatchTimePure = document.querySelector('.stopwatch__time--pure');
 const startBtn = document.querySelector('.start-btn');
 const resetBtn = document.querySelector('.reset-btn');
 
-let centisecond = 0;
-let centisecondPure = 0;
+let centiSecondsCounter = 0;
+let centiSecondsPureCounter = 0;
 let stopwatchInterval;
 let startStopwatch = false;
 let startStopwatchPure = false;
@@ -35,7 +35,7 @@ const breakRemain = document.querySelector('.remain-time');
 let breakInterval;
 let breakBtnInterval;
 let startBreak = false;
-let second = 0;
+let secondsCounter = 0;
 
 initStopwatch();
 
@@ -64,7 +64,7 @@ resetBtn.addEventListener('click', () => {
   startStopwatch = false;
   startStopwatchPure = false;
   clearInterval(stopwatchInterval);
-  resetTime();
+  resetCounter();
   initStartBtn();
   clearTime();
   resetBreak();
@@ -139,14 +139,14 @@ function initStopwatch() {
 function startStopwatchInterval() {
   stopwatchInterval = setInterval(() => {
     if (startStopwatch) {
-      if (CENTI_SECONDS_IN_A_DAY - 2 < centisecond) return;
-      centisecond++;
-      const time = getTime(centisecond);
+      if (CENTI_SECONDS_IN_A_DAY - 2 < centiSecondsCounter) return;
+      centiSecondsCounter++;
+      const time = getTime(centiSecondsCounter);
       setTime(stopwatchTime, time);
       if (startStopwatchPure && !startBreak) {
-        if (CENTI_SECONDS_IN_A_DAY - 2 < centisecondPure) return;
-        centisecondPure++;
-        const timePure = getTime(centisecondPure);
+        if (CENTI_SECONDS_IN_A_DAY - 2 < centiSecondsPureCounter) return;
+        centiSecondsPureCounter++;
+        const timePure = getTime(centiSecondsPureCounter);
         setTime(stopwatchTimePure, timePure);
       }
     }
@@ -156,9 +156,9 @@ function startStopwatchInterval() {
 function startBreakInterval() {
   breakInterval = setInterval(() => {
     if (startBreak) {
-      if (Number(breakTotal.innerText) - 1 < second) return;
-      second++;
-      breakRemain.innerText = second;
+      if (Number(breakTotal.innerText) - 1 < secondsCounter) return;
+      secondsCounter++;
+      breakRemain.innerText = secondsCounter;
     }
   }, 1000);
   breakBtnInterval = setInterval(() => {
@@ -189,9 +189,9 @@ function toggleBtn() {
   startBtn.innerText = startBtn.innerText === 'Start' ? 'Pause' : 'Start';
 }
 
-function resetTime() {
-  centisecond = 0;
-  centisecondPure = 0;
+function resetCounter() {
+  centiSecondsCounter = 0;
+  centiSecondsPureCounter = 0;
 }
 
 function resetBreak() {
@@ -199,8 +199,8 @@ function resetBreak() {
   breakBtn.removeAttribute('style');
   clearInterval(breakInterval);
   clearInterval(breakBtnInterval);
-  second = 0;
-  breakRemain.innerText = second;
+  secondsCounter = 0;
+  breakRemain.innerText = secondsCounter;
 }
 
 function clearTime() {
