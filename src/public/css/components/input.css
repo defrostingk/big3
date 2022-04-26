@@ -1,4 +1,4 @@
-input[type='text'] {
+input {
   border: none;
   font-family: 'Roboto', sans-serif;
   font-size: var(--font-medium);
@@ -8,19 +8,19 @@ input[type='text'] {
   transition: border-color var(--animation-duration) ease-in-out;
 }
 
-input[type='text']::placeholder {
+input::placeholder {
   color: var(--color-light-grey);
 }
 
-input[type='text']:focus {
+input:focus {
   outline: none;
   border-color: var(--color-pink);
 }
 
-input[type='text']:-webkit-autofill,
-input[type='text']:-webkit-autofill:hover,
-input[type='text']:-webkit-autofill:focus,
-input[type='text']:-webkit-autofill:active {
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 1000px var(--color-white) inset;
   font-size: var(--font-medium);
 }
