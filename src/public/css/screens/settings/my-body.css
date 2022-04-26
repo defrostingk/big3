@@ -15,6 +15,17 @@
   font-family: 'Roboto', sans-serif;
   color: var(--color-light-grey);
 }
+
+.my-records input:-webkit-autofill,
+.my-records input:-webkit-autofill:hover,
+.my-records input:-webkit-autofill:focus,
+.my-records input:-webkit-autofill:active,
+.my-records input:-webkit-autofill::first-line {
+  font-size: var(--font-regular);
+  -webkit-text-fill-color: var(--color-light-grey);
+  color: var(--color-light-grey);
+}
+
 .save-my-body-btn {
   width: 100%;
   margin-top: 20px;

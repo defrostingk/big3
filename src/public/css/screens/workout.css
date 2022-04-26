@@ -155,8 +155,7 @@
   align-items: center;
 }
 
-.set-weight,
-.set-reps {
+.note__set input[type='text'] {
   font-size: var(--font-regular);
   width: 50px;
   background-color: transparent;
