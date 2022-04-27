@@ -70,14 +70,3 @@ body {
   display: block;
   font-size: var(--font-regular);
 }
-
-/* Dev */
-.stopwatch__container {
-  /* display: none; */
-}
-.break__container {
-  display: none;
-}
-.records__container {
-  display: none;
-}

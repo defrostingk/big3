@@ -1,3 +1,8 @@
+.break__container,
+.records__container {
+  display: none;
+}
+
 .stopwatch,
 .break,
 .records {
@@ -53,7 +58,6 @@
 }
 
 /* Break */
-
 .break__timer {
   font-size: calc(var(--font-header) * 1.8);
   border-radius: 50%;
