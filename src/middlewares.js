@@ -13,3 +13,12 @@ export function checkUserMiddleware(req, res, next) {
     return res.redirect('/login');
   }
 }
+
+export function preventLoggedInUserMiddleware(req, res, next) {
+  if (res.locals.loggedIn) {
+    req.flash('error', 'You are already logged in.');
+    return res.redirect('/');
+  } else {
+    next();
+  }
+}

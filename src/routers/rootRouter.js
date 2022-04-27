@@ -5,13 +5,24 @@ import { getJoin, postJoin } from '../controllers/joinController';
 import { getLogin, postLogin, getLogout } from '../controllers/loginController';
 import { getMyInfo } from '../controllers/myInfoController';
 import { getWorkout } from '../controllers/workoutController';
-import { checkUserMiddleware } from '../middlewares';
+import {
+  checkUserMiddleware,
+  preventLoggedInUserMiddleware,
+} from '../middlewares';
 
 const rootRouter = express.Router();
 
 rootRouter.get('/', getHome);
-rootRouter.route('/join').get(getJoin).post(postJoin);
-rootRouter.route('/login').get(getLogin).post(postLogin);
+rootRouter
+  .route('/join')
+  .all(preventLoggedInUserMiddleware)
+  .get(getJoin)
+  .post(postJoin);
+rootRouter
+  .route('/login')
+  .all(preventLoggedInUserMiddleware)
+  .get(getLogin)
+  .post(postLogin);
 
 rootRouter.route('/logout').all(checkUserMiddleware).get(getLogout);
 rootRouter.route('/workout').all(checkUserMiddleware).get(getWorkout);
