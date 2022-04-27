@@ -4,6 +4,8 @@ block content
   .container.home__container
     .home
       include ../partials/title
+      if messages.error
+        span.error-message= messages.error
       .greeting
         if (loggedIn)
           h2 Hello, #{ loggedInUser.username }
