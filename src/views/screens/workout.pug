@@ -24,11 +24,24 @@ block content
       button.load-btn
         i.fa-solid.fa-plus
         span Load my template
-      .records__board
+      form.records__board
         .note
           .note__header
-            span.note__title Bench press
-            span.note__category Chest
+            input.note__title(
+              type='text',
+              value='Bench press',
+              placeholder='Title'
+            )
+            select.note__category(name='category')
+              option(value='') Category
+              option(value='chest') Chest
+              option(value='back') Back
+              option(value='shoulder') Shoulder
+              option(value='lower') Lower body
+              option(value='biceps') Biceps
+              option(value='triceps') Tryceps
+              option(value='core') Core
+              option(value='whole') Whole body
           ul.note__contents
             li.set__header
             each num in [1,2,3,4,5]
@@ -46,26 +59,6 @@ block content
                   i.fa-solid.fa-xmark
             button.set-add-btn
               i.fa-solid.fa-plus
-        .note
-          .note__header
-            span.note__title Dips
-            span.note__category Chest
-          ul.note__contents
-            each num in [1,2,3,4,5]
-              li.note__set
-                input#setCheck.set-check(type='checkbox')
-                label(for='setCheck')
-                span.set-number= num
-                input.set-weight(
-                  type='text',
-                  value='free',
-                  placeholder='weight'
-                )
-                input.set-reps(type='text', value='15reps', placeholder='reps')
-                button.set-delete-btn
-                  i.fa-solid.fa-xmark
-            button.set-add-btn
-              i.fa-solid.fa-plus
         button.add-note-btn
           i.fa-solid.fa-plus
           span Add a note
@@ -79,4 +72,5 @@ block content
       i.fa-solid.fa-pen-to-square 
 
 block scripts
-  script(src='/static/js/stopwatch.js')
+  script(src='/static/js/stopwatch.js', defer)
+  script(src='/static/js/recordsBoard.js', defer)

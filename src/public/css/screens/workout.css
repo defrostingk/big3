@@ -134,11 +134,20 @@
   margin-bottom: 10px;
 }
 
+.note__title {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+}
+
 .note__category {
-  font-size: var(--font-regular);
+  font-size: var(--font-small);
   background-color: var(--color-white);
   border-radius: var(--size-border-radius);
-  padding: var(--size-padding-text);
+  border: none;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .note__set {
