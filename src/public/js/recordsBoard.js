@@ -1,6 +1,12 @@
 const addNoteBtn = document.querySelector('.add-note-btn');
 let noteNum = 0;
 
+// 저장 누르면 note를 querySelectorAll로 받아서
+// 각각의 input을 하나의 object에 넣고
+// 각각의 note에서 만들어진 object를 records object에 넣어 db에 저장.
+
+// fetch를 사용해 서버에 object를 넘기고, 거기서 db에 저장.
+
 // Add note
 addNoteBtn.addEventListener('click', addNote);
 

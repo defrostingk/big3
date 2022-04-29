@@ -21,9 +21,14 @@ block content
 
   .container.records__container
     .records
-      button.load-btn
-        i.fa-solid.fa-plus
-        span Load my template
+      .records__buttons
+        button.load-btn
+          i.fa-solid.fa-plus
+          span Load
+        button.save-btn
+          i.fa-solid.fa-check
+          span Save
+
       form.records__board
         .board
         button.add-note-btn(type='button')

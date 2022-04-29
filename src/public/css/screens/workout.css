@@ -95,19 +95,29 @@
 }
 
 /* Records */
-.load-btn {
+.records__buttons {
+  display: flex;
+  justify-content: space-around;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .load-btn,
+.save-btn,
 .add-note-btn {
   display: flex;
   align-items: center;
 }
 
 .load-btn i,
+.save-btn i,
 .add-note-btn i {
   margin-right: 10px;
+}
+
+.save-btn {
+  background-color: var(--color-white);
+  color: var(--color-pink);
 }
 
 .records__board {
