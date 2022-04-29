@@ -45,7 +45,7 @@ function createNoteHeader() {
   noteCategory.setAttribute('name', 'category');
 
   const options = [
-    { value: '', innerText: 'Category' },
+    { value: 'none', innerText: 'Category' },
     { value: 'chest', innerText: 'Chest' },
     { value: 'back', innerText: 'Back' },
     { value: 'shoulder', innerText: 'Shoulder' },
@@ -141,21 +141,27 @@ function createNoteSet(idx) {
 
 // Save records
 saveRecordsBtn.addEventListener('click', () => {
-  const records = getRecords();
-  console.log(records);
+  const workoutRecords = getWorkoutRecords();
+  console.log(workoutRecords);
 });
 
-function getRecords() {
+function getWorkoutRecords() {
   const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const date = new Date();
   const currentYear = date.getFullYear();
   const currentMonth = date.getMonth() + 1;
   const currentDate = date.getDate();
   const currentDay = day[date.getDay()];
-  const today = `${currentYear} ${currentMonth} ${currentDate} ${currentDay}`;
+  const today = {
+    year: currentYear,
+    month: currentMonth,
+    date: currentDate,
+    day: currentDay,
+  };
 
-  const records = {
+  const workoutRecords = {
     date: today,
+    workout: {},
   };
 
   let workoutNum = 0;
@@ -173,14 +179,14 @@ function getRecords() {
       sets.push([weight, reps]);
     });
 
-    const workout = {
+    const noteObj = {
       title,
       category,
       sets,
     };
 
-    records[`workout${workoutNum++}`] = workout;
+    workoutRecords.workout[`${workoutNum++}`] = noteObj;
   });
 
-  return records;
+  return workoutRecords;
 }

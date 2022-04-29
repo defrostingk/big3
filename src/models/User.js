@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     targetSkeletalMuscleMass: { type: Number, default: 0 },
     targetPercentBodyFat: { type: Number, default: 0 },
   },
+  workoutRecords: {
+    date: { type: Object },
+    workout: { type: Object },
+  },
 });
 
 userSchema.pre('save', async function () {
