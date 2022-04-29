@@ -157,8 +157,8 @@
   margin-bottom: 2px;
 }
 
-.set-delete-btn,
-.set-add-btn {
+.delete-set-btn,
+.add-set-btn {
   font-size: var(--font-small);
   width: calc(var(--font-small) * 2);
   height: calc(var(--font-small) * 2);

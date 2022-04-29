@@ -26,43 +26,6 @@ block content
         span Load my template
       form.records__board
         .board
-          .note
-            .note__header
-              input.note__title(
-                type='text',
-                value='Bench press',
-                placeholder='Title'
-              )
-              select.note__category(name='category')
-                option(value='') Category
-                option(value='chest') Chest
-                option(value='back') Back
-                option(value='shoulder') Shoulder
-                option(value='lower') Lower body
-                option(value='biceps') Biceps
-                option(value='triceps') Tryceps
-                option(value='core') Core
-                option(value='whole') Whole body
-            ul.note__contents
-              each num in [1,2,3,4,5]
-                li.note__set
-                  input#setCheck.set-check(type='checkbox')
-                  label(for='setCheck')
-                  span.set-number= num
-                  input.set-weight(
-                    type='text',
-                    value='60kg',
-                    placeholder='weight'
-                  )
-                  input.set-reps(
-                    type='text',
-                    value='5reps',
-                    placeholder='reps'
-                  )
-                  button.set-delete-btn(type='button')
-                    i.fa-solid.fa-xmark
-              button.set-add-btn(type='button')
-                i.fa-solid.fa-plus
         button.add-note-btn(type='button')
           i.fa-solid.fa-plus
           span Add a note
