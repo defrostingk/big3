@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import './db';
+import './models/User';
+import './models/Records';
 import app from './server';
 
 // Port

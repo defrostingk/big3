@@ -1,4 +1,5 @@
 import User from '../models/User';
+import { Body } from '../models/Records';
 
 const sectionTitle = 'Settings';
 const TITLE_BREAK_TIME = 'Break time';
@@ -35,10 +36,11 @@ export function getSettingsRoutine(req, res) {
 }
 
 // My-info
-export function getSettingsMyBody(req, res) {
-  const user = res.locals.loggedInUser;
+export async function getSettingsMyBody(req, res) {
+  const { _id } = res.locals.loggedInUser;
+  const user = await User.findById(_id).populate('bodyRecords');
 
-  if (user) {
+  if (user.bodyRecords) {
     res.locals.big3 =
       user.bodyRecords.squat +
       user.bodyRecords.benchPress +
@@ -78,14 +80,12 @@ export function getSettingsMyBody(req, res) {
 
 export async function postSettingsMyBody(req, res) {
   const { _id } = res.locals.loggedInUser;
-  const bodyRecords = req.body;
+  const myBody = req.body;
 
+  const bodyRecords = await Body.create(myBody);
   const user = await User.findByIdAndUpdate(_id, {
     bodyRecords,
   });
-
-  const updatedUser = await User.findOne({ _id });
-  req.session.loggedInUser = updatedUser;
 
   return res.redirect('/settings/my-body');
 }

@@ -5,23 +5,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  bodyRecords: {
-    squat: { type: Number, default: 0 },
-    benchPress: { type: Number, default: 0 },
-    deadLift: { type: Number, default: 0 },
-    height: { type: Number, default: 0 },
-    weight: { type: Number, default: 0 },
-    skeletalMuscleMass: { type: Number, default: 0 },
-    bodyFatMass: { type: Number, default: 0 },
-    percentBodyFat: { type: Number, default: 0 },
-    targetWeight: { type: Number, default: 0 },
-    targetSkeletalMuscleMass: { type: Number, default: 0 },
-    targetPercentBodyFat: { type: Number, default: 0 },
-  },
-  workoutRecords: {
-    date: { type: Object },
-    workout: { type: Object },
-  },
+  bodyRecords: { type: mongoose.Schema.Types.ObjectId, ref: 'Body' },
+  workoutRecords: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Workout' }],
 });
 
 userSchema.pre('save', async function () {

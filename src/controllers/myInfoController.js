@@ -1,7 +1,10 @@
-export function getMyInfo(req, res) {
-  const user = res.locals.loggedInUser;
+import User from '../models/User';
 
-  if (user) {
+export async function getMyInfo(req, res) {
+  const { _id } = res.locals.loggedInUser;
+  const user = await User.findById(_id).populate('bodyRecords');
+
+  if (user.bodyRecords) {
     res.locals.big3 =
       user.bodyRecords.squat +
       user.bodyRecords.benchPress +
