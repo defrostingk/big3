@@ -40,18 +40,21 @@ export function getSettingsMyBody(req, res) {
 
   if (user) {
     res.locals.big3 =
-      user.records.squat + user.records.benchPress + user.records.deadLift;
-    res.locals.squat = user.records.squat;
-    res.locals.benchPress = user.records.benchPress;
-    res.locals.deadLift = user.records.deadLift;
-    res.locals.height = user.records.height;
-    res.locals.weight = user.records.weight;
-    res.locals.skeletalMuscleMass = user.records.skeletalMuscleMass;
-    res.locals.bodyFatMass = user.records.bodyFatMass;
-    res.locals.percentBodyFat = user.records.percentBodyFat;
-    res.locals.targetWeight = user.records.targetWeight;
-    res.locals.targetSkeletalMuscleMass = user.records.targetSkeletalMuscleMass;
-    res.locals.targetPercentBodyFat = user.records.targetPercentBodyFat;
+      user.bodyRecords.squat +
+      user.bodyRecords.benchPress +
+      user.bodyRecords.deadLift;
+    res.locals.squat = user.bodyRecords.squat;
+    res.locals.benchPress = user.bodyRecords.benchPress;
+    res.locals.deadLift = user.bodyRecords.deadLift;
+    res.locals.height = user.bodyRecords.height;
+    res.locals.weight = user.bodyRecords.weight;
+    res.locals.skeletalMuscleMass = user.bodyRecords.skeletalMuscleMass;
+    res.locals.bodyFatMass = user.bodyRecords.bodyFatMass;
+    res.locals.percentBodyFat = user.bodyRecords.percentBodyFat;
+    res.locals.targetWeight = user.bodyRecords.targetWeight;
+    res.locals.targetSkeletalMuscleMass =
+      user.bodyRecords.targetSkeletalMuscleMass;
+    res.locals.targetPercentBodyFat = user.bodyRecords.targetPercentBodyFat;
   } else {
     res.locals.big3 = 0;
     res.locals.squat = 0;
@@ -75,10 +78,10 @@ export function getSettingsMyBody(req, res) {
 
 export async function postSettingsMyBody(req, res) {
   const { _id } = res.locals.loggedInUser;
-  const records = req.body;
+  const bodyRecords = req.body;
 
   const user = await User.findByIdAndUpdate(_id, {
-    records,
+    bodyRecords,
   });
 
   const updatedUser = await User.findOne({ _id });

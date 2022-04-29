@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  records: {
+  bodyRecords: {
     squat: { type: Number, default: 0 },
     benchPress: { type: Number, default: 0 },
     deadLift: { type: Number, default: 0 },

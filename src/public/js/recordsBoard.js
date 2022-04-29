@@ -1,4 +1,5 @@
 const addNoteBtn = document.querySelector('.add-note-btn');
+const saveRecordsBtn = document.querySelector('.save-btn');
 let noteNum = 0;
 
 // 저장 누르면 note를 querySelectorAll로 받아서
@@ -136,4 +137,50 @@ function createNoteSet(idx) {
   noteSet.append(deleteSetBtn);
 
   return noteSet;
+}
+
+// Save records
+saveRecordsBtn.addEventListener('click', () => {
+  const records = getRecords();
+  console.log(records);
+});
+
+function getRecords() {
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  const currentMonth = date.getMonth() + 1;
+  const currentDate = date.getDate();
+  const currentDay = day[date.getDay()];
+  const today = `${currentYear} ${currentMonth} ${currentDate} ${currentDay}`;
+
+  const records = {
+    date: today,
+  };
+
+  let workoutNum = 0;
+  const notes = document.querySelectorAll('.note');
+
+  notes.forEach((note) => {
+    const title = note.querySelector('.note__title').value;
+    const category = note.querySelector('.note__category').value;
+
+    const noteSets = note.querySelectorAll('.note__set');
+    const sets = [];
+    noteSets.forEach((set) => {
+      const weight = set.querySelector('.set-weight').value;
+      const reps = set.querySelector('.set-reps').value;
+      sets.push([weight, reps]);
+    });
+
+    const workout = {
+      title,
+      category,
+      sets,
+    };
+
+    records[`workout${workoutNum++}`] = workout;
+  });
+
+  return records;
 }
