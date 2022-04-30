@@ -19,6 +19,7 @@ app.set('views', process.cwd() + '/src/views/screens');
 app.use('/static', express.static(process.cwd() + '/src/public'));
 app.use(logger);
 app.use(flash());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({

@@ -5,7 +5,7 @@ block content
     .home
       include ../partials/title
       if messages.error
-        span.error-message= messages.error
+        span.message.error-message= messages.error
       .greeting
         if (loggedIn)
           h2 Hello, #{ loggedInUser.username }

@@ -96,6 +96,7 @@ function createNoteSet(thisNoteIdx) {
   const noteSet = document.createElement('li');
   noteSet.classList.add('note__set');
 
+  // Checkbox
   const setCheck = document.createElement('input');
   setCheck.classList.add('set-check');
   setCheck.setAttribute('type', 'checkbox');
@@ -109,23 +110,27 @@ function createNoteSet(thisNoteIdx) {
   );
   noteSet.append(setCheckLabel);
 
+  // Number
   const setNumber = document.createElement('span');
   setNumber.classList.add('set-number');
   setNumber.innerText = noteSetIdx[thisNoteIdx] + 1;
   noteSet.append(setNumber);
 
+  // Weight
   const setWeight = document.createElement('input');
   setWeight.classList.add('set-weight');
   setWeight.setAttribute('type', 'text');
   setWeight.setAttribute('placeholder', 'weight');
   noteSet.append(setWeight);
 
+  // Reps
   const setReps = document.createElement('input');
   setReps.classList.add('set-reps');
   setReps.setAttribute('type', 'text');
   setReps.setAttribute('placeholder', 'reps');
   noteSet.append(setReps);
 
+  // Delete btn
   const deleteSetBtn = document.createElement('button');
   deleteSetBtn.classList.add('delete-set-btn');
   deleteSetBtn.setAttribute('type', 'button');
@@ -134,13 +139,14 @@ function createNoteSet(thisNoteIdx) {
   deleteSetIcon.classList.add('fa-xmark');
   deleteSetBtn.append(deleteSetIcon);
 
+  // Delete set
   noteSetIdx[thisNoteIdx]++;
   deleteSetBtn.addEventListener('click', () => {
     const set = deleteSetBtn.parentNode;
     const sets = set.parentNode;
     set.remove();
     noteSetIdx[thisNoteIdx]--;
-    changeSetNumber(sets);
+    updateSetNumber(sets);
   });
 
   noteSet.append(deleteSetBtn);
@@ -148,18 +154,45 @@ function createNoteSet(thisNoteIdx) {
   return noteSet;
 }
 
-function changeSetNumber(sets) {
+function updateSetNumber(sets) {
   const setNumbers = sets.querySelectorAll('.set-number');
   let number = 1;
   setNumbers.forEach((setNumber) => (setNumber.innerText = number++));
 }
 
 // Save records
-saveRecordsBtn.addEventListener('click', () => {
+saveRecordsBtn.addEventListener('click', async () => {
   const workoutRecords = getWorkoutRecords();
   console.log(workoutRecords);
-  // workoutRecords object를
-  // fetch를 사용해 서버에 넘기고, 거기서 db에 저장.
+
+  const fetchOption = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(workoutRecords),
+  };
+
+  fetch('/workout', fetchOption)
+    .then(() => {
+      const message = document.querySelector('.message');
+      message.classList.add('success-message');
+      message.innerText = 'Save successfully.';
+      setTimeout(() => {
+        message.classList.remove('success-message');
+        message.innerText = '';
+      }, 5000);
+    })
+    .catch((error) => {
+      const message = document.querySelector('.message');
+      message.classList.add('error-message');
+      message.innerText = 'Failed to save';
+      setTimeout(() => {
+        message.classList.remove('error-message');
+        message.innerText = '';
+      }, 5000);
+      console.log(error);
+    });
 });
 
 function getWorkoutRecords() {

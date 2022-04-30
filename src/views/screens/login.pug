@@ -6,8 +6,8 @@ block content
     .login
       include ../partials/title
       if messages.error
-        span.error-message= messages.error
-      span.error-message= errorMessage
+        span.message.error-message= messages.error
+      span.message.error-message= errorMessage
       form.login__form(method='POST')
         input.login__email(
           name='email',
