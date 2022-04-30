@@ -196,6 +196,13 @@ saveRecordsBtn.addEventListener('click', async () => {
 });
 
 function getWorkoutRecords() {
+  const timeWhole = document.querySelector('.stopwatch__time').innerText;
+  const timePure = document.querySelector('.stopwatch__time--pure').innerText;
+  const time = {
+    whole: timeWhole,
+    pure: timePure,
+  };
+
   const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const date = new Date();
   const currentYear = date.getFullYear();
@@ -210,6 +217,7 @@ function getWorkoutRecords() {
   };
 
   const workoutRecords = {
+    time,
     date: today,
     workout: {},
   };

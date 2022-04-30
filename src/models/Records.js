@@ -15,6 +15,7 @@ const bodyRecordsSchema = new mongoose.Schema({
 });
 
 const workoutRecordsSchema = new mongoose.Schema({
+  time: { whole: { type: String }, pure: { type: String } },
   date: { type: Object },
   workout: { type: Object },
 });
