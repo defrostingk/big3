@@ -29,6 +29,8 @@ block content
           i.fa-solid.fa-check
           span Save
 
+      if errorMessage
+        span.message.error-message= errorMessage
       span.message
 
       form.records__board
