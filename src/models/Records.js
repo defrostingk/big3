@@ -16,8 +16,19 @@ const bodyRecordsSchema = new mongoose.Schema({
 
 const workoutRecordsSchema = new mongoose.Schema({
   time: { whole: { type: String }, pure: { type: String } },
-  date: { type: Object },
-  workout: { type: Object },
+  date: {
+    year: { type: Number },
+    month: { type: Number },
+    date: { type: Number },
+    day: { type: String },
+  },
+  workout: [
+    {
+      title: { type: String },
+      category: { type: String },
+      sets: [{ weight: { type: String }, reps: { type: String } }],
+    },
+  ],
 });
 
 export const Body = mongoose.model('Body', bodyRecordsSchema);

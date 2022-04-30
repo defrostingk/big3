@@ -160,7 +160,7 @@ function updateSetNumber(sets) {
   setNumbers.forEach((setNumber) => (setNumber.innerText = number++));
 }
 
-// Save records
+// Save and send records to server
 saveRecordsBtn.addEventListener('click', async () => {
   const workoutRecords = getWorkoutRecords();
   console.log(workoutRecords);
@@ -219,10 +219,9 @@ function getWorkoutRecords() {
   const workoutRecords = {
     time,
     date: today,
-    workout: {},
+    workout: [],
   };
 
-  let workoutNum = 0;
   const notes = document.querySelectorAll('.note');
 
   notes.forEach((note) => {
@@ -243,7 +242,7 @@ function getWorkoutRecords() {
       sets,
     };
 
-    workoutRecords.workout[`${workoutNum++}`] = noteObj;
+    workoutRecords.workout.push(noteObj);
   });
 
   return workoutRecords;
