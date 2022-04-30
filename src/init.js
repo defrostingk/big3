@@ -1,11 +1,9 @@
 import 'dotenv/config';
 import './db';
-import './models/User';
-import './models/Records';
 import app from './server';
 
 // Port
-const LOCAL_PORT = 3000;
+const LOCAL_PORT = 4000;
 const PORT = process.env.PORT || LOCAL_PORT;
 
 app.listen(PORT, () => {

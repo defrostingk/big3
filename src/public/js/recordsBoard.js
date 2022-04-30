@@ -1,6 +1,7 @@
 const addNoteBtn = document.querySelector('.add-note-btn');
 const saveRecordsBtn = document.querySelector('.save-btn');
-let noteNum = 0;
+let noteIdx = 0;
+let noteSetIdx = [];
 
 // Add note
 addNoteBtn.addEventListener('click', addNote);
@@ -18,7 +19,7 @@ function addNote() {
   // Add note
   const board = document.querySelector('.board');
   board.append(note);
-  noteNum++;
+  noteIdx++;
 }
 
 function createNoteHeader() {
@@ -62,14 +63,15 @@ function createNoteHeader() {
 }
 
 function createNoteContents() {
-  let idx = 0;
+  noteSetIdx.push(0);
+  const thisNoteIdx = noteIdx;
   const noteContents = document.createElement('div');
   noteContents.classList.add('note__contents');
 
   const noteSets = document.createElement('ul');
   noteSets.classList.add('note__sets');
 
-  const noteSet = createNoteSet(idx);
+  const noteSet = createNoteSet(thisNoteIdx);
   noteSets.append(noteSet);
   noteContents.append(noteSets);
 
@@ -82,31 +84,34 @@ function createNoteContents() {
   setAddBtn.append(setAddIcon);
   noteContents.append(setAddBtn);
 
-  setAddBtn.addEventListener('click', (event) => {
-    const newNoteSet = createNoteSet(++idx);
+  setAddBtn.addEventListener('click', () => {
+    const newNoteSet = createNoteSet(thisNoteIdx);
     noteSets.append(newNoteSet);
   });
 
   return noteContents;
 }
 
-function createNoteSet(idx) {
+function createNoteSet(thisNoteIdx) {
   const noteSet = document.createElement('li');
   noteSet.classList.add('note__set');
 
   const setCheck = document.createElement('input');
   setCheck.classList.add('set-check');
   setCheck.setAttribute('type', 'checkbox');
-  setCheck.setAttribute('id', `setCheck${noteNum}-${idx}`);
+  setCheck.setAttribute('id', `setCheck${noteIdx}-${noteSetIdx[thisNoteIdx]}`);
   noteSet.append(setCheck);
 
   const setCheckLabel = document.createElement('label');
-  setCheckLabel.setAttribute('for', `setCheck${noteNum}-${idx}`);
+  setCheckLabel.setAttribute(
+    'for',
+    `setCheck${noteIdx}-${noteSetIdx[thisNoteIdx]}`
+  );
   noteSet.append(setCheckLabel);
 
   const setNumber = document.createElement('span');
   setNumber.classList.add('set-number');
-  setNumber.innerText = `${idx + 1}`;
+  setNumber.innerText = noteSetIdx[thisNoteIdx] + 1;
   noteSet.append(setNumber);
 
   const setWeight = document.createElement('input');
@@ -128,9 +133,25 @@ function createNoteSet(idx) {
   deleteSetIcon.classList.add('fa-solid');
   deleteSetIcon.classList.add('fa-xmark');
   deleteSetBtn.append(deleteSetIcon);
+
+  noteSetIdx[thisNoteIdx]++;
+  deleteSetBtn.addEventListener('click', () => {
+    const set = deleteSetBtn.parentNode;
+    const sets = set.parentNode;
+    set.remove();
+    noteSetIdx[thisNoteIdx]--;
+    changeSetNumber(sets);
+  });
+
   noteSet.append(deleteSetBtn);
 
   return noteSet;
+}
+
+function changeSetNumber(sets) {
+  const setNumbers = sets.querySelectorAll('.set-number');
+  let number = 1;
+  setNumbers.forEach((setNumber) => (setNumber.innerText = number++));
 }
 
 // Save records
@@ -172,7 +193,7 @@ function getWorkoutRecords() {
     noteSets.forEach((set) => {
       const weight = set.querySelector('.set-weight').value;
       const reps = set.querySelector('.set-reps').value;
-      sets.push([weight, reps]);
+      sets.push({ weight, reps });
     });
 
     const noteObj = {

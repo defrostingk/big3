@@ -83,9 +83,7 @@ export async function postSettingsMyBody(req, res) {
   const myBody = req.body;
 
   const bodyRecords = await Body.create(myBody);
-  const user = await User.findByIdAndUpdate(_id, {
-    bodyRecords,
-  });
+  const user = await User.findByIdAndUpdate(_id, { bodyRecords });
 
   return res.redirect('/settings/my-body');
 }
