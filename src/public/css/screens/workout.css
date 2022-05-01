@@ -227,8 +227,16 @@
   color: var(--color-white);
 }
 
-.loader-view-more-btn {
+.view-more-btn {
   font-size: var(--font-medium);
+}
+
+.view-more-btn i {
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+.view-more-btn i.more {
+  transform: rotate(-180deg);
 }
 
 .load-records-btn {

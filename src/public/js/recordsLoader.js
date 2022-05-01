@@ -8,3 +8,8 @@ loadBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   loaderWindow.style.display = 'none';
 });
+
+const moreBtn = document.querySelector('.view-more-btn');
+moreBtn.addEventListener('click', () => {
+  moreBtn.querySelector('i').classList.toggle('more');
+});
