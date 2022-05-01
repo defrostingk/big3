@@ -9,7 +9,11 @@ closeBtn.addEventListener('click', () => {
   loaderWindow.style.display = 'none';
 });
 
-const moreBtn = document.querySelector('.view-more-btn');
+const moreBtn = loaderWindow.querySelector('.view-more-btn');
+const board = loaderWindow.querySelector('.board');
 moreBtn.addEventListener('click', () => {
   moreBtn.querySelector('i').classList.toggle('more');
+  board.classList.toggle('more');
+  // JavaScript에서 max-height 계산해서 직접 주자.
+  board.style.maxHeight = board.style.maxHeight === '223px' ? '0' : '223px';
 });

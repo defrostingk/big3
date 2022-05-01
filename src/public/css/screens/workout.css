@@ -250,6 +250,12 @@
   margin-right: 5px;
 }
 
+.loader__records .board {
+  max-height: 0;
+  overflow: hidden;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
 .loader__records .note {
   margin-bottom: 5px;
 }
