@@ -42,12 +42,12 @@ block content
   .loader__window
     .loader__header
       span.loader__title Load Records
-      button
+      button.close-loader-btn
         i.fa-solid.fa-xmark
     .loader__container
       .loader__records
         .loader-records__header
-          button.more-btn
+          button.view-more-btn
             i.fa-solid.fa-chevron-down
           span.loader-records__date 2022. 05. 01.
           span.loader-records__category Chest
@@ -59,7 +59,7 @@ block content
             .note__header
               span.note__title Bench press
               select.note__category(name='category', disabled)
-                option Category
+                option(value='') Category
             .note__contents
               ul.note__sets
                 li.note__set
