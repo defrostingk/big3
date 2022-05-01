@@ -4,7 +4,11 @@ import { getHome } from '../controllers/homeController';
 import { getJoin, postJoin } from '../controllers/joinController';
 import { getLogin, postLogin, getLogout } from '../controllers/loginController';
 import { getMyInfo } from '../controllers/myInfoController';
-import { getWorkout, postWorkout } from '../controllers/workoutController';
+import {
+  getWorkout,
+  postWorkout,
+  getLoad,
+} from '../controllers/workoutController';
 import {
   checkUserMiddleware,
   preventLoggedInUserMiddleware,
@@ -30,6 +34,8 @@ rootRouter
   .all(checkUserMiddleware)
   .get(getWorkout)
   .post(postWorkout);
+rootRouter.route('/workout/load').all(checkUserMiddleware).get(getLoad);
+
 rootRouter.route('/calendar').all(checkUserMiddleware).get(getCalendar);
 rootRouter.route('/my-info').all(checkUserMiddleware).get(getMyInfo);
 

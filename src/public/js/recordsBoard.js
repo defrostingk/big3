@@ -165,7 +165,7 @@ saveRecordsBtn.addEventListener('click', async () => {
   const workoutRecords = getWorkoutRecords();
   console.log(workoutRecords);
 
-  const fetchOption = {
+  const fetchConfig = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ saveRecordsBtn.addEventListener('click', async () => {
     body: JSON.stringify(workoutRecords),
   };
 
-  fetch('/workout', fetchOption)
+  fetch('/workout', fetchConfig)
     .then(() => {
       const message = document.querySelector('.message');
       message.classList.add('success-message');
