@@ -263,3 +263,8 @@
 .loader__records .note:last-child {
   margin-bottom: 10px;
 }
+
+.loader__records .note__set {
+  height: var(--font-medium);
+  text-align: center;
+}
