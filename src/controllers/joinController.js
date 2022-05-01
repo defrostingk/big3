@@ -22,14 +22,16 @@ export async function postJoin(req, res) {
     });
   }
   if (existEmail) {
-    return res
-      .status(400)
-      .render('join', { sectionTitle, errorMessage: ERROR_EXIST_EMAIL });
+    return res.status(400).render('join', {
+      sectionTitle,
+      errorMessage: ERROR_EXIST_EMAIL,
+    });
   }
   if (existUsername) {
-    return res
-      .status(400)
-      .render('join', { sectionTitle, errorMessage: ERROR_EXIST_USERNAME });
+    return res.status(400).render('join', {
+      sectionTitle,
+      errorMessage: ERROR_EXIST_USERNAME,
+    });
   }
 
   // Create user

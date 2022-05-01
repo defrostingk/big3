@@ -1,10 +1,10 @@
 header
-  if (!isSettings)
+  if (!headerType)
     a.button.header__home-btn(href='/')
       i.fa-solid.fa-house
     span.header__title= sectionTitle
 
-  if (isSettings)
+  if (headerType === 'settings')
     a.button.header__back-btn(href='/settings')
       i.fa-solid.fa-arrow-left
     span.header__title

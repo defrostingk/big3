@@ -1,3 +1,5 @@
+const sectionTitle = 'Calendar';
+
 export function getCalendar(req, res) {
-  return res.render('calendar', { sectionTitle: 'Calendar' });
+  return res.render('calendar', { sectionTitle });
 }

@@ -15,17 +15,19 @@ export async function postLogin(req, res) {
 
   // Handle error
   if (!user) {
-    return res
-      .status(400)
-      .render('login', { sectionTitle, errorMessage: ERROR_NOT_EXIST_USER });
+    return res.status(400).render('login', {
+      sectionTitle,
+      errorMessage: ERROR_NOT_EXIST_USER,
+    });
   }
 
   // Check user
   const login = await bcrypt.compare(password, user.password);
   if (!login) {
-    return res
-      .status(400)
-      .render('login', { sectionTitle, errorMessage: ERROR_WRONG_PASSWORD });
+    return res.status(400).render('login', {
+      sectionTitle,
+      errorMessage: ERROR_WRONG_PASSWORD,
+    });
   }
 
   // Session

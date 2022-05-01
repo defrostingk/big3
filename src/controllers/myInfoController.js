@@ -1,5 +1,7 @@
 import User from '../models/User';
 
+const sectionTitle = 'My Info';
+
 export async function getMyInfo(req, res) {
   const { _id } = res.locals.loggedInUser;
   const user = await User.findById(_id).populate('bodyRecords');
@@ -36,5 +38,5 @@ export async function getMyInfo(req, res) {
     res.locals.targetPercentBodyFat = 0;
   }
 
-  return res.render('my-info', { sectionTitle: 'My Info' });
+  return res.render('my-info', { sectionTitle });
 }

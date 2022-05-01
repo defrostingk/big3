@@ -1,4 +1,3 @@
-import express from 'express';
 import { Workout } from '../models/Records';
 import User from '../models/User';
 
@@ -19,9 +18,10 @@ export async function postWorkout(req, res) {
     user.save();
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .render('workout', { sectionTitle, errorMessage: ERROR_FAILED_TO_SAVE });
+    return res.status(500).render('workout', {
+      sectionTitle,
+      errorMessage: ERROR_FAILED_TO_SAVE,
+    });
   }
 
   return res.render('workout', { sectionTitle });
