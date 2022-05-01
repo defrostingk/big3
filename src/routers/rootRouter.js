@@ -25,6 +25,11 @@ rootRouter
   .post(postLogin);
 
 rootRouter.route('/logout').all(checkUserMiddleware).get(getLogout);
+rootRouter
+  .route('/workout')
+  .all(checkUserMiddleware)
+  .get(getWorkout)
+  .post(postWorkout);
 rootRouter.route('/calendar').all(checkUserMiddleware).get(getCalendar);
 rootRouter.route('/my-info').all(checkUserMiddleware).get(getMyInfo);
 

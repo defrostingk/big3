@@ -1,7 +1,6 @@
 import express from 'express';
 import session from 'express-session';
 import rootRouter from './routers/rootRouter';
-import workoutRouter from './routers/workoutRouter';
 import settingsRouter from './routers/settingsRouter';
 import morgan from 'morgan';
 import MongoStore from 'connect-mongo';
@@ -34,7 +33,6 @@ app.use(localsMiddleware);
 
 // Routers
 app.use('/', rootRouter);
-app.use('/workout', workoutRouter);
 app.use('/settings', settingsRouter);
 app.get('/*', (req, res) => res.redirect('/'));
 
