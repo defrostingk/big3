@@ -1,7 +1,9 @@
 import { Workout } from '../models/Records';
 import User from '../models/User';
 
+const headerType = '';
 const sectionTitle = 'Workout';
+const TITLE_LOAD = 'Load Records';
 const ERROR_FAILED_TO_SAVE = 'Failed to save.';
 
 export function getWorkout(req, res) {
@@ -25,4 +27,8 @@ export async function postWorkout(req, res) {
   }
 
   return res.render('workout', { sectionTitle });
+}
+
+export function getLoad(req, res) {
+  return res.render('./workout/load', { sectionTitle: TITLE_LOAD, headerType });
 }

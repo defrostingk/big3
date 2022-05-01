@@ -1,4 +1,4 @@
-extends ../base.pug
+extends ../base
 
 block content
   include ../partials/header
@@ -22,7 +22,7 @@ block content
   .container.records__container
     .records
       .records__buttons
-        button.load-btn
+        a.button.load-btn(href='/workout/load', target='_blank')
           i.fa-solid.fa-plus
           span Load
         button.save-btn
