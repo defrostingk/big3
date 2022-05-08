@@ -28,14 +28,14 @@ export async function postWorkout(req, res) {
 }
 
 export async function getLoad(req, res) {
-  console.log('load');
-  const myObj = { key: 'value' };
-  const myList = ['123', '12'];
-  const message = { myObj, myList };
+  const { _id } = res.locals.loggedInUser;
 
-  // To-do
-  // workoutRecords 찾아서 전송
-  // 우선 objectId, date, category만
-
-  return res.send(JSON.stringify(message));
+  try {
+    const user = await User.findById(_id).populate('workoutRecords');
+    const workoutRecords = user.workoutRecords;
+    return res.send(JSON.stringify(workoutRecords));
+  } catch (error) {
+    console.log(error);
+    return res.status(500).end();
+  }
 }

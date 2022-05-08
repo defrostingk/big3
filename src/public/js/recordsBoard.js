@@ -222,7 +222,8 @@ function getWorkoutRecords() {
     workout: [],
   };
 
-  const notes = document.querySelectorAll('.note');
+  const recordsBoard = document.querySelector('.records__board');
+  const notes = recordsBoard.querySelectorAll('.note');
 
   notes.forEach((note) => {
     const title = note.querySelector('.note__title').value;

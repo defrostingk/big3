@@ -40,14 +40,10 @@ function loadRecords() {
 
       // To-do
       // date, category로 records#objectId 생성
-      // moreBtn click 시 /workout/load/objectId로 get
       // get으로 얻은 records 값 활용하여 board 추가
-      // global object에 objectId를 key로 하는 records 추가
 
       // loadBtn click 시
-      // 먼저 global object에서 key값 확인하고
-      // 없으면 /workout/load/objectId로 get
-      // 둘 중 하나에서 얻은 records 값 활용하여 load
+      // 얻은 records 값 활용하여 /workout에 note 추가
     })
     .catch((error) => console.log(error));
 }
