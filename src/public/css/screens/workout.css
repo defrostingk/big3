@@ -213,12 +213,20 @@
 .loader-records__header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
   font-size: var(--font-regular);
   border-radius: var(--size-border-radius);
   background-color: var(--color-pink);
+  padding-left: 50px;
+  padding-right: 75px;
+  position: relative;
+}
+
+.loader-records__header,
+.view-more-btn,
+.load-records-btn {
+  height: 45px;
 }
 
 .loader-records__header button:hover {
@@ -228,6 +236,10 @@
 
 .view-more-btn {
   font-size: var(--font-medium);
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .view-more-btn i {
@@ -238,11 +250,20 @@
   transform: rotate(-180deg);
 }
 
+.loader-records__date {
+  margin-right: 10px;
+  width: 70%;
+}
+
 .load-records-btn {
   font-size: var(--font-regular);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 75px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .load-records-btn i {

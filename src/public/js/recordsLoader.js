@@ -65,6 +65,7 @@ function addRecords(records) {
 
   // View more btn
   const viewMoreBtn = document.createElement('button');
+  viewMoreBtn.classList.add('view-more-btn');
   const viewMoreBtnIcon = document.createElement('i');
   viewMoreBtnIcon.classList.add('fa-solid');
   viewMoreBtnIcon.classList.add('fa-chevron-down');
@@ -106,11 +107,11 @@ function addRecords(records) {
     { value: 'chest', innerText: 'Chest' },
     { value: 'back', innerText: 'Back' },
     { value: 'shoulder', innerText: 'Shoulder' },
-    { value: 'lower', innerText: 'Lower body' },
+    { value: 'lower', innerText: 'Lower' },
     { value: 'biceps', innerText: 'Biceps' },
     { value: 'triceps', innerText: 'Tryceps' },
     { value: 'core', innerText: 'Core' },
-    { value: 'whole', innerText: 'Whole body' },
+    { value: 'whole', innerText: 'Whole' },
   ];
 
   for (let i = 0; i < categoryTable.length; i++) {
@@ -135,5 +136,6 @@ function addRecords(records) {
   recordsHeader.append(loadRecordsBtn);
 
   // Add header
-  loaderContainer.append(recordsHeader);
+  loaderRecords.append(recordsHeader);
+  loaderContainer.append(loaderRecords);
 }
