@@ -3,6 +3,7 @@ const loaderContainer = document.querySelector('.loader__container');
 
 initLoader();
 
+// dev
 const moreBtn = loaderWindow.querySelector('.view-more-btn');
 const board = loaderWindow.querySelector('.board');
 moreBtn.addEventListener('click', () => {
@@ -11,6 +12,7 @@ moreBtn.addEventListener('click', () => {
   // JavaScript에서 max-height 계산해서 직접 주자.
   board.style.maxHeight = board.style.maxHeight === '250px' ? '0' : '250px';
 });
+// / dev
 
 function initLoader() {
   initLoadBtn();
@@ -39,49 +41,84 @@ function loadRecords() {
       const recordsArr = data;
       console.log(recordsArr);
       recordsArr.reverse();
-
       recordsArr.forEach((records) => {
         addRecords(records);
       });
-
-      // To-do
-      // date, category로 records#objectId 생성
-      // get으로 얻은 records 값 활용하여 board 추가
-
-      // loadBtn click 시
-      // 얻은 records 값 활용하여 /workout에 note 추가
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.error(error));
 }
 
 function addRecords(records) {
   console.log(records);
+  addRecordsHeaderAndHandleBtn(records);
+
+  // To-do
+  // records 값 활용하여 board 추가
+  addRecordsBoard(records);
+}
+
+function addRecordsHeaderAndHandleBtn(records) {
   const loaderRecords = document.createElement('div');
   loaderRecords.classList.add('loader__records');
 
-  // Records header
+  // Create a records header
   const recordsHeader = document.createElement('div');
   recordsHeader.classList.add('loader-records__header');
 
-  // View more btn
+  // Create and add a view more btn
+  const viewMoreBtn = createViewMoreBtn();
+  recordsHeader.append(viewMoreBtn);
+
+  // Create and add a date
+  const recordsDate = createDate(records);
+  recordsHeader.append(recordsDate);
+
+  // Create and add a category
+  const recordsCategory = createCategory(records);
+  recordsHeader.append(recordsCategory);
+
+  // Create and add a load records btn
+  const loadRecordsBtn = createLoadRecordsBtn();
+  recordsHeader.append(loadRecordsBtn);
+
+  // Add a records header
+  loaderRecords.append(recordsHeader);
+  loaderContainer.append(loaderRecords);
+
+  // To-do
+  // Handle view more btn
+  // board max-height elements의 height 합으로 계산
+  // max-height toggle
+
+  // Handle load records btn
+  // loadBtn click 시
+  // workout records clear 후
+  // 얻은 records 값 활용하여 /workout에 note 추가
+}
+
+function createViewMoreBtn() {
   const viewMoreBtn = document.createElement('button');
   viewMoreBtn.classList.add('view-more-btn');
   const viewMoreBtnIcon = document.createElement('i');
   viewMoreBtnIcon.classList.add('fa-solid');
   viewMoreBtnIcon.classList.add('fa-chevron-down');
   viewMoreBtn.append(viewMoreBtnIcon);
-  recordsHeader.append(viewMoreBtn);
 
-  // Date
+  return viewMoreBtn;
+}
+
+function createDate(records) {
   const recordsDate = document.createElement('span');
   recordsDate.classList.add('loader-records__date');
   let { year, month, date, day } = records.date;
   month = month < 10 ? `0${month}` : month;
   date = date < 10 ? `0${date}` : date;
   recordsDate.innerText = `${year}. ${month}. ${date}. ${day}`;
-  recordsHeader.append(recordsDate);
 
-  // Category
+  return recordsDate;
+}
+
+function createCategory(records) {
   const recordsCategory = document.createElement('span');
   recordsCategory.classList.add('loader-records__category');
 
@@ -121,9 +158,10 @@ function addRecords(records) {
     }
   }
 
-  recordsHeader.append(recordsCategory);
+  return recordsCategory;
+}
 
-  // Load btn
+function createLoadRecordsBtn() {
   const loadRecordsBtn = document.createElement('button');
   loadRecordsBtn.classList.add('load-records-btn');
   const loadRecordsBtnIcon = document.createElement('i');
@@ -133,9 +171,8 @@ function addRecords(records) {
   const loadRecordsBtnSpan = document.createElement('span');
   loadRecordsBtnSpan.innerText = 'Load';
   loadRecordsBtn.append(loadRecordsBtnSpan);
-  recordsHeader.append(loadRecordsBtn);
 
-  // Add header
-  loaderRecords.append(recordsHeader);
-  loaderContainer.append(loaderRecords);
+  return loadRecordsBtn;
 }
+
+function addRecordsBoard(records) {}
