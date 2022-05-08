@@ -14,13 +14,13 @@ moreBtn.addEventListener('click', () => {
 function initLoader() {
   initLoadBtn();
   initCloseBtn();
-  loadRecords();
 }
 
 function initLoadBtn() {
   const loadBtn = document.querySelector('.load-btn');
   loadBtn.addEventListener('click', () => {
     loaderWindow.style.display = 'flex';
+    loadRecords();
   });
 }
 

@@ -9,35 +9,41 @@ import {
   getSettingsUser,
   postSettingsMyBody,
 } from '../controllers/settingsController';
-import { checkUserMiddleware } from '../middlewares';
+import { checkLoggedInUserMiddleware } from '../middlewares';
 
 const settingsRouter = express.Router();
 
-settingsRouter.route('/').all(checkUserMiddleware).get(getSettings);
+settingsRouter.route('/').all(checkLoggedInUserMiddleware).get(getSettings);
 
 // Workout
 settingsRouter
   .route('/break-time')
-  .all(checkUserMiddleware)
+  .all(checkLoggedInUserMiddleware)
   .get(getSettingsBreakTime);
 settingsRouter
   .route('/template')
-  .all(checkUserMiddleware)
+  .all(checkLoggedInUserMiddleware)
   .get(getSettingsTemplate);
 settingsRouter
   .route('/routine')
-  .all(checkUserMiddleware)
+  .all(checkLoggedInUserMiddleware)
   .get(getSettingsRoutine);
 
 // My info
 settingsRouter
   .route('/my-body')
-  .all(checkUserMiddleware)
+  .all(checkLoggedInUserMiddleware)
   .get(getSettingsMyBody)
   .post(postSettingsMyBody);
 
 // General
-settingsRouter.route('/user').all(checkUserMiddleware).get(getSettingsUser);
-settingsRouter.route('/theme').all(checkUserMiddleware).get(getSettingsTheme);
+settingsRouter
+  .route('/user')
+  .all(checkLoggedInUserMiddleware)
+  .get(getSettingsUser);
+settingsRouter
+  .route('/theme')
+  .all(checkLoggedInUserMiddleware)
+  .get(getSettingsTheme);
 
 export default settingsRouter;

@@ -10,7 +10,7 @@ import {
   getLoad,
 } from '../controllers/workoutController';
 import {
-  checkUserMiddleware,
+  checkLoggedInUserMiddleware,
   preventLoggedInUserMiddleware,
 } from '../middlewares';
 
@@ -28,15 +28,15 @@ rootRouter
   .get(getLogin)
   .post(postLogin);
 
-rootRouter.route('/logout').all(checkUserMiddleware).get(getLogout);
+rootRouter.route('/logout').all(checkLoggedInUserMiddleware).get(getLogout);
 rootRouter
   .route('/workout')
-  .all(checkUserMiddleware)
+  .all(checkLoggedInUserMiddleware)
   .get(getWorkout)
   .post(postWorkout);
-rootRouter.route('/workout/load').all(checkUserMiddleware).get(getLoad);
+rootRouter.route('/workout/load').all(checkLoggedInUserMiddleware).get(getLoad);
 
-rootRouter.route('/calendar').all(checkUserMiddleware).get(getCalendar);
-rootRouter.route('/my-info').all(checkUserMiddleware).get(getMyInfo);
+rootRouter.route('/calendar').all(checkLoggedInUserMiddleware).get(getCalendar);
+rootRouter.route('/my-info').all(checkLoggedInUserMiddleware).get(getMyInfo);
 
 export default rootRouter;

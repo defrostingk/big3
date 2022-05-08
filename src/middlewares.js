@@ -5,7 +5,7 @@ export function localsMiddleware(req, res, next) {
   next();
 }
 
-export function checkUserMiddleware(req, res, next) {
+export function checkLoggedInUserMiddleware(req, res, next) {
   if (res.locals.loggedIn) {
     next();
   } else {
