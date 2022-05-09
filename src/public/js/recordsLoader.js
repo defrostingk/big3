@@ -7,9 +7,8 @@ initLoader();
 const moreBtn = loaderWindow.querySelector('.view-more-btn');
 const board = loaderWindow.querySelector('.board');
 moreBtn.addEventListener('click', () => {
-  moreBtn.querySelector('i').classList.toggle('more');
-  board.classList.toggle('more');
-  // JavaScript에서 max-height 계산해서 직접 주자.
+  // JavaScript로 max-height 계산해서 직접 주자.
+  // 관련 메서드를 찾아보자.
   board.style.maxHeight = board.style.maxHeight === '250px' ? '0' : '250px';
 });
 // / dev
@@ -50,17 +49,20 @@ function loadRecords() {
 
 function addRecords(records) {
   console.log(records);
-  addRecordsHeaderAndHandleBtn(records);
+  if (records.workout.length) {
+    const loaderRecords = document.createElement('div');
+    loaderRecords.classList.add('loader__records');
+    addRecordsHeaderAndHandleBtn(records, loaderRecords);
 
-  // To-do
-  // records 값 활용하여 board 추가
-  addRecordsBoard(records);
+    // To-do
+    // records 값 활용하여 board 추가
+    addLoadedBoard(records, loaderRecords);
+
+    loaderContainer.append(loaderRecords);
+  }
 }
 
-function addRecordsHeaderAndHandleBtn(records) {
-  const loaderRecords = document.createElement('div');
-  loaderRecords.classList.add('loader__records');
-
+function addRecordsHeaderAndHandleBtn(records, loaderRecords) {
   // Create a records header
   const recordsHeader = document.createElement('div');
   recordsHeader.classList.add('loader-records__header');
@@ -83,11 +85,10 @@ function addRecordsHeaderAndHandleBtn(records) {
 
   // Add a records header
   loaderRecords.append(recordsHeader);
-  loaderContainer.append(loaderRecords);
 
   // To-do
   // Handle view more btn
-  // board max-height elements의 height 합으로 계산
+  // JavaScript 메서드 활용하여 max-height 계산
   // max-height toggle
 
   // Handle load records btn
@@ -124,39 +125,21 @@ function createCategory(records) {
 
   const { workout } = records;
   const categorySets = {};
-  workout.forEach((content) => {
-    const { category, sets } = content;
+  workout.forEach((contents) => {
+    const { category, sets } = contents;
     categorySets[category] = categorySets[category]
       ? categorySets[category] + sets.length
       : sets.length;
   });
 
-  let maxCategory = 'none';
+  let maxCategory = 'None';
   let maxSets = 0;
   for (let key in categorySets) {
     if (maxSets < categorySets[key]) {
       maxCategory = key;
     }
   }
-
-  const categoryTable = [
-    { value: 'none', innerText: 'None' },
-    { value: 'chest', innerText: 'Chest' },
-    { value: 'back', innerText: 'Back' },
-    { value: 'shoulder', innerText: 'Shoulder' },
-    { value: 'lower', innerText: 'Lower' },
-    { value: 'biceps', innerText: 'Biceps' },
-    { value: 'triceps', innerText: 'Tryceps' },
-    { value: 'core', innerText: 'Core' },
-    { value: 'whole', innerText: 'Whole' },
-  ];
-
-  for (let i = 0; i < categoryTable.length; i++) {
-    if (categoryTable[i].value === maxCategory) {
-      recordsCategory.innerText = categoryTable[i].innerText;
-      break;
-    }
-  }
+  recordsCategory.innerText = maxCategory.substring(0, 5);
 
   return recordsCategory;
 }
@@ -175,4 +158,42 @@ function createLoadRecordsBtn() {
   return loadRecordsBtn;
 }
 
-function addRecordsBoard(records) {}
+function addLoadedBoard(records, loaderRecords) {
+  const board = document.createElement('div');
+  board.classList.add('board');
+
+  records.workout.forEach((contents) => {
+    const note = document.createElement('div');
+    note.classList.add('note');
+    const noteHeader = createLoadedNoteHeader(contents);
+    note.append(noteHeader);
+
+    // add note contents
+
+    board.append(note);
+  });
+
+  loaderRecords.append(board);
+}
+
+function createLoadedNoteHeader(contents) {
+  const { category, title } = contents;
+
+  const noteHeader = document.createElement('note__header');
+  noteHeader.classList.add('note__header');
+
+  const noteTitle = document.createElement('span');
+  noteTitle.classList.add('note__title');
+  noteTitle.innerText = title;
+  noteHeader.append(noteTitle);
+
+  const noteCategory = document.createElement('select');
+  noteCategory.classList.add('note__category');
+  noteCategory.setAttribute('disabled', '');
+  const noteCategoryOption = document.createElement('option');
+  noteCategoryOption.innerText = category;
+  noteCategory.append(noteCategoryOption);
+  noteHeader.append(noteCategory);
+
+  return noteHeader;
+}

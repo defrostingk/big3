@@ -40,15 +40,15 @@ function createNoteHeader() {
   noteCategory.setAttribute('name', 'category');
 
   const options = [
-    { value: 'none', innerText: 'Category' },
-    { value: 'chest', innerText: 'Chest' },
-    { value: 'back', innerText: 'Back' },
-    { value: 'shoulder', innerText: 'Shoulder' },
-    { value: 'lower', innerText: 'Lower body' },
-    { value: 'biceps', innerText: 'Biceps' },
-    { value: 'triceps', innerText: 'Tryceps' },
-    { value: 'core', innerText: 'Core' },
-    { value: 'whole', innerText: 'Whole body' },
+    { value: 'None', innerText: 'Category' },
+    { value: 'Chest', innerText: 'Chest' },
+    { value: 'Back', innerText: 'Back' },
+    { value: 'Shoulder', innerText: 'Shoulder' },
+    { value: 'Lower body', innerText: 'Lower body' },
+    { value: 'Biceps', innerText: 'Biceps' },
+    { value: 'Triceps', innerText: 'Tryceps' },
+    { value: 'Core', innerText: 'Core' },
+    { value: 'Whole body', innerText: 'Whole body' },
   ];
 
   options.forEach((option) => {
