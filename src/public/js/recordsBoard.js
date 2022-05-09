@@ -2,14 +2,13 @@ const addNoteBtn = document.querySelector('.add-note-btn');
 const saveRecordsBtn = document.querySelector('.save-btn');
 let noteIdx = 0;
 let noteSetIdx = [];
-let load;
 
 // Add note
 addNoteBtn.addEventListener('click', addNote);
 
-function addNote() {
-  const noteHeader = createNoteHeader();
-  const noteContents = createNoteContents();
+function addNote(loadedRecords) {
+  const noteHeader = createNoteHeader(loadedRecords);
+  const noteContents = createNoteContents(loadedRecords);
 
   // Create note
   const note = document.createElement('div');
@@ -23,7 +22,7 @@ function addNote() {
   noteIdx++;
 }
 
-function createNoteHeader() {
+function createNoteHeader(loadedRecords) {
   // Create header
   const noteHeader = document.createElement('div');
   noteHeader.classList.add('note__header');
@@ -33,6 +32,10 @@ function createNoteHeader() {
   noteTitle.classList.add('note__title');
   noteTitle.setAttribute('type', 'text');
   noteTitle.setAttribute('placeholder', 'Workout');
+  if (loadedRecords) {
+    const { title } = loadedRecords;
+    noteTitle.setAttribute('value', title);
+  }
   noteHeader.append(noteTitle);
 
   // Add category
@@ -56,8 +59,16 @@ function createNoteHeader() {
     const optionTag = document.createElement('option');
     optionTag.setAttribute('value', option.value);
     optionTag.innerText = option.innerText;
+
+    if (loadedRecords) {
+      const { category } = loadedRecords;
+      if (category === optionTag.innerText) {
+        optionTag.selected = true;
+      }
+    }
     noteCategory.append(optionTag);
   });
+
   noteHeader.append(noteCategory);
 
   return noteHeader;

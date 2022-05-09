@@ -1,5 +1,6 @@
 const loaderWindow = document.querySelector('.loader__window');
 const loaderContainer = document.querySelector('.loader__container');
+const closeBtn = document.querySelector('.close-loader-btn');
 
 initLoader();
 
@@ -17,7 +18,6 @@ function initLoadBtn() {
 }
 
 function initCloseBtn() {
-  const closeBtn = document.querySelector('.close-loader-btn');
   closeBtn.addEventListener('click', () => {
     loaderWindow.style.display = 'none';
   });
@@ -66,8 +66,8 @@ function addLoadedRecordsAndHandleBtn(records) {
     // 얻은 records 값 활용하여 /workout에 note 추가
     const loadRecordsBtn = loadedRecords.querySelector('.load-records-btn');
     loadRecordsBtn.addEventListener('click', () => {
-      load = records;
-      addNote();
+      records.workout.forEach((loadedRecords) => addNote(loadedRecords));
+      closeBtn.click();
     });
   }
 }
