@@ -43,13 +43,16 @@ function addLoadedRecordsAndHandleBtn(records) {
     const loadedRecords = document.createElement('div');
     loadedRecords.classList.add('loader__records');
 
-    addLoadedRecordsHeader(records, loadedRecords);
-    addLoadedBoard(records, loadedRecords);
+    // Add loaded records
+    const loadedRecordsHeader = createLoadedRecordsHeader(records);
+    loadedRecords.append(loadedRecordsHeader);
+    const loadedBoard = createLoadedBoard(records);
+    loadedRecords.append(loadedBoard);
 
     loaderContainer.append(loadedRecords);
 
+    // Handle view more btn
     const viewMoreBtn = loadedRecords.querySelector('.view-more-btn');
-    const loadedBoard = loadedRecords.querySelector('.board');
     const height = loadedBoard.clientHeight;
     loadedBoard.style.maxHeight = 0;
     viewMoreBtn.addEventListener('click', () => {
@@ -60,10 +63,7 @@ function addLoadedRecordsAndHandleBtn(records) {
         : '0px';
     });
 
-    // Handle load records btn
-    // loadBtn click 시
-    // workout records clear 후
-    // 얻은 records 값 활용하여 /workout에 note 추가
+    // Handle load btn
     const loadRecordsBtn = loadedRecords.querySelector('.load-records-btn');
     loadRecordsBtn.addEventListener('click', () => {
       records.workout.forEach((loadedRecords) => addNote(loadedRecords));
@@ -72,7 +72,7 @@ function addLoadedRecordsAndHandleBtn(records) {
   }
 }
 
-function addLoadedRecordsHeader(records, loadedRecords) {
+function createLoadedRecordsHeader(records) {
   // Create a records header
   const recordsHeader = document.createElement('div');
   recordsHeader.classList.add('loader-records__header');
@@ -93,8 +93,7 @@ function addLoadedRecordsHeader(records, loadedRecords) {
   const loadRecordsBtn = createLoadRecordsBtn();
   recordsHeader.append(loadRecordsBtn);
 
-  // Add a records header
-  loadedRecords.append(recordsHeader);
+  return recordsHeader;
 }
 
 function createViewMoreBtn() {
@@ -158,7 +157,7 @@ function createLoadRecordsBtn() {
   return loadRecordsBtn;
 }
 
-function addLoadedBoard(records, loadedRecords) {
+function createLoadedBoard(records) {
   const board = document.createElement('div');
   board.classList.add('board');
 
@@ -180,8 +179,7 @@ function addLoadedBoard(records, loadedRecords) {
     // Add a note to board
     board.append(note);
   });
-
-  loadedRecords.append(board);
+  return board;
 }
 
 function createLoadedNoteHeader(title, category) {
