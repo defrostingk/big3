@@ -194,7 +194,6 @@ function updateSetNumber(sets) {
 // Save and send records to server
 saveRecordsBtn.addEventListener('click', async () => {
   const workoutRecords = getWorkoutRecords();
-  console.log(workoutRecords);
 
   const fetchConfig = {
     method: 'POST',
@@ -222,7 +221,7 @@ saveRecordsBtn.addEventListener('click', async () => {
         message.classList.remove('error-message');
         message.innerText = '';
       }, 5000);
-      console.log(error);
+      console.error(error);
     });
 });
 
