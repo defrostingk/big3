@@ -28,7 +28,6 @@ function printLoadedRecords() {
     .then((res) => res.json())
     .then((data) => {
       const recordsArr = data;
-      console.log(recordsArr);
       recordsArr.reverse();
       recordsArr.forEach((records) => {
         addLoadedRecordsAndHandleBtn(records);
@@ -38,7 +37,6 @@ function printLoadedRecords() {
 }
 
 function addLoadedRecordsAndHandleBtn(records) {
-  console.log(records);
   if (records.workout.length) {
     const loadedRecords = document.createElement('div');
     loadedRecords.classList.add('loader__records');
