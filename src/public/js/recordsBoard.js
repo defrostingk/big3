@@ -74,7 +74,7 @@ function createNoteHeader(loadedRecords) {
   return noteHeader;
 }
 
-function createNoteContents() {
+function createNoteContents(loadedRecords) {
   noteSetIdx.push(0);
   const thisNoteIdx = noteIdx;
   const noteContents = document.createElement('div');
@@ -83,8 +83,16 @@ function createNoteContents() {
   const noteSets = document.createElement('ul');
   noteSets.classList.add('note__sets');
 
-  const noteSet = createNoteSet(thisNoteIdx);
-  noteSets.append(noteSet);
+  if (loadedRecords) {
+    const { sets } = loadedRecords;
+    sets.forEach((set) => {
+      const noteSet = createNoteSet(thisNoteIdx, set);
+      noteSets.append(noteSet);
+    });
+  } else {
+    const noteSet = createNoteSet(thisNoteIdx);
+    noteSets.append(noteSet);
+  }
   noteContents.append(noteSets);
 
   const setAddBtn = document.createElement('button');
@@ -104,7 +112,7 @@ function createNoteContents() {
   return noteContents;
 }
 
-function createNoteSet(thisNoteIdx) {
+function createNoteSet(thisNoteIdx, set) {
   const noteSet = document.createElement('li');
   noteSet.classList.add('note__set');
 
@@ -133,6 +141,10 @@ function createNoteSet(thisNoteIdx) {
   setWeight.classList.add('set-weight');
   setWeight.setAttribute('type', 'text');
   setWeight.setAttribute('placeholder', 'weight');
+  if (set) {
+    const { weight } = set;
+    setWeight.setAttribute('value', weight);
+  }
   noteSet.append(setWeight);
 
   // Reps
@@ -140,6 +152,10 @@ function createNoteSet(thisNoteIdx) {
   setReps.classList.add('set-reps');
   setReps.setAttribute('type', 'text');
   setReps.setAttribute('placeholder', 'reps');
+  if (set) {
+    const { reps } = set;
+    setReps.setAttribute('value', reps);
+  }
   noteSet.append(setReps);
 
   // Delete btn
