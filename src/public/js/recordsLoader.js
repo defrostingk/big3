@@ -31,13 +31,13 @@ function printLoadedRecords() {
       console.log(recordsArr);
       recordsArr.reverse();
       recordsArr.forEach((records) => {
-        addLoadedRecords(records);
+        addLoadedRecordsAndHandleBtn(records);
       });
     })
     .catch((error) => console.error(error));
 }
 
-function addLoadedRecords(records) {
+function addLoadedRecordsAndHandleBtn(records) {
   console.log(records);
   if (records.workout.length) {
     const loadedRecords = document.createElement('div');
@@ -64,6 +64,11 @@ function addLoadedRecords(records) {
     // loadBtn click 시
     // workout records clear 후
     // 얻은 records 값 활용하여 /workout에 note 추가
+    const loadRecordsBtn = loadedRecords.querySelector('.load-records-btn');
+    loadRecordsBtn.addEventListener('click', () => {
+      load = records;
+      addNote();
+    });
   }
 }
 

@@ -2,6 +2,7 @@ const addNoteBtn = document.querySelector('.add-note-btn');
 const saveRecordsBtn = document.querySelector('.save-btn');
 let noteIdx = 0;
 let noteSetIdx = [];
+let load;
 
 // Add note
 addNoteBtn.addEventListener('click', addNote);
@@ -139,17 +140,20 @@ function createNoteSet(thisNoteIdx) {
   deleteSetIcon.classList.add('fa-xmark');
   deleteSetBtn.append(deleteSetIcon);
 
-  // Delete set
-  noteSetIdx[thisNoteIdx]++;
-  deleteSetBtn.addEventListener('click', () => {
-    const set = deleteSetBtn.parentNode;
-    const sets = set.parentNode;
-    set.remove();
-    noteSetIdx[thisNoteIdx]--;
-    updateSetNumber(sets);
-  });
-
   noteSet.append(deleteSetBtn);
+  noteSetIdx[thisNoteIdx]++;
+
+  // Delete set
+  deleteSetBtn.addEventListener('click', () => {
+    const sets = noteSet.parentNode;
+    noteSetIdx[thisNoteIdx]--;
+    if (noteSetIdx[thisNoteIdx] < 1) {
+      sets.parentNode.parentNode.remove();
+    } else {
+      noteSet.remove();
+      updateSetNumber(sets);
+    }
+  });
 
   return noteSet;
 }
