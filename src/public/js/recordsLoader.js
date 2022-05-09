@@ -12,7 +12,7 @@ function initLoadBtn() {
   const loadBtn = document.querySelector('.load-btn');
   loadBtn.addEventListener('click', () => {
     loaderWindow.style.display = 'flex';
-    loadRecords();
+    printLoadedRecords();
   });
 }
 
@@ -23,7 +23,7 @@ function initCloseBtn() {
   });
 }
 
-function loadRecords() {
+function printLoadedRecords() {
   fetch('/workout/load')
     .then((res) => res.json())
     .then((data) => {
@@ -31,30 +31,25 @@ function loadRecords() {
       console.log(recordsArr);
       recordsArr.reverse();
       recordsArr.forEach((records) => {
-        addRecords(records);
+        addLoadedRecords(records);
       });
     })
     .catch((error) => console.error(error));
 }
 
-function addRecords(records) {
+function addLoadedRecords(records) {
   console.log(records);
   if (records.workout.length) {
-    const loaderRecords = document.createElement('div');
-    loaderRecords.classList.add('loader__records');
-    addRecordsHeaderAndHandleBtn(records, loaderRecords);
+    const loadedRecords = document.createElement('div');
+    loadedRecords.classList.add('loader__records');
 
-    // To-do
-    // records 값 활용하여 board 추가
-    addLoadedBoard(records, loaderRecords);
-    loaderContainer.append(loaderRecords);
+    addLoadedRecordsHeader(records, loadedRecords);
+    addLoadedBoard(records, loadedRecords);
 
-    // To-do
-    // Handle view more btn
-    // JavaScript 메서드 활용하여 max-height 계산
-    // max-height toggle
-    const viewMoreBtn = loaderRecords.querySelector('.view-more-btn');
-    const loadedBoard = loaderRecords.querySelector('.board');
+    loaderContainer.append(loadedRecords);
+
+    const viewMoreBtn = loadedRecords.querySelector('.view-more-btn');
+    const loadedBoard = loadedRecords.querySelector('.board');
     const height = loadedBoard.clientHeight;
     loadedBoard.style.maxHeight = 0;
     viewMoreBtn.addEventListener('click', () => {
@@ -72,7 +67,7 @@ function addRecords(records) {
   }
 }
 
-function addRecordsHeaderAndHandleBtn(records, loaderRecords) {
+function addLoadedRecordsHeader(records, loadedRecords) {
   // Create a records header
   const recordsHeader = document.createElement('div');
   recordsHeader.classList.add('loader-records__header');
@@ -94,7 +89,7 @@ function addRecordsHeaderAndHandleBtn(records, loaderRecords) {
   recordsHeader.append(loadRecordsBtn);
 
   // Add a records header
-  loaderRecords.append(recordsHeader);
+  loadedRecords.append(recordsHeader);
 }
 
 function createViewMoreBtn() {
@@ -158,27 +153,33 @@ function createLoadRecordsBtn() {
   return loadRecordsBtn;
 }
 
-function addLoadedBoard(records, loaderRecords) {
+function addLoadedBoard(records, loadedRecords) {
   const board = document.createElement('div');
   board.classList.add('board');
 
   records.workout.forEach((contents) => {
+    const { title, category, sets } = contents;
+
+    // Create a note
     const note = document.createElement('div');
     note.classList.add('note');
-    const noteHeader = createLoadedNoteHeader(contents);
+
+    // Create and add a note header
+    const noteHeader = createLoadedNoteHeader(title, category);
     note.append(noteHeader);
 
-    // add note contents
+    // Create and add note sets
+    const noteSets = createLoadedNoteSets(sets);
+    note.append(noteSets);
 
+    // Add a note to board
     board.append(note);
   });
 
-  loaderRecords.append(board);
+  loadedRecords.append(board);
 }
 
-function createLoadedNoteHeader(contents) {
-  const { category, title } = contents;
-
+function createLoadedNoteHeader(title, category) {
   const noteHeader = document.createElement('note__header');
   noteHeader.classList.add('note__header');
 
@@ -196,4 +197,32 @@ function createLoadedNoteHeader(contents) {
   noteHeader.append(noteCategory);
 
   return noteHeader;
+}
+
+function createLoadedNoteSets(sets) {
+  const noteSets = document.createElement('ul');
+  noteSets.classList.add('note__sets');
+
+  sets.forEach((set, idx) => {
+    const { weight, reps } = set;
+
+    const noteSet = document.createElement('li');
+    noteSet.classList.add('note__set');
+
+    const setNumber = document.createElement('span');
+    setNumber.innerText = idx + 1;
+    noteSet.append(setNumber);
+
+    const setWeight = document.createElement('span');
+    setWeight.innerText = weight;
+    noteSet.append(setWeight);
+
+    const setReps = document.createElement('span');
+    setReps.innerText = reps;
+    noteSet.append(setReps);
+
+    noteSets.append(noteSet);
+  });
+
+  return noteSets;
 }
