@@ -3,16 +3,6 @@ const loaderContainer = document.querySelector('.loader__container');
 
 initLoader();
 
-// dev
-const moreBtn = loaderWindow.querySelector('.view-more-btn');
-const board = loaderWindow.querySelector('.board');
-moreBtn.addEventListener('click', () => {
-  // JavaScript로 max-height 계산해서 직접 주자.
-  // 관련 메서드를 찾아보자.
-  board.style.maxHeight = board.style.maxHeight === '250px' ? '0' : '250px';
-});
-// / dev
-
 function initLoader() {
   initLoadBtn();
   initCloseBtn();
@@ -57,8 +47,28 @@ function addRecords(records) {
     // To-do
     // records 값 활용하여 board 추가
     addLoadedBoard(records, loaderRecords);
-
     loaderContainer.append(loaderRecords);
+
+    // To-do
+    // Handle view more btn
+    // JavaScript 메서드 활용하여 max-height 계산
+    // max-height toggle
+    const viewMoreBtn = loaderRecords.querySelector('.view-more-btn');
+    const loadedBoard = loaderRecords.querySelector('.board');
+    const height = loadedBoard.clientHeight;
+    loadedBoard.style.maxHeight = 0;
+    viewMoreBtn.addEventListener('click', () => {
+      const viewMoreBtnIcon = viewMoreBtn.querySelector('i');
+      viewMoreBtnIcon.classList.toggle('more');
+      loadedBoard.style.maxHeight = viewMoreBtnIcon.classList.contains('more')
+        ? `${height}px`
+        : '0px';
+    });
+
+    // Handle load records btn
+    // loadBtn click 시
+    // workout records clear 후
+    // 얻은 records 값 활용하여 /workout에 note 추가
   }
 }
 
@@ -85,16 +95,6 @@ function addRecordsHeaderAndHandleBtn(records, loaderRecords) {
 
   // Add a records header
   loaderRecords.append(recordsHeader);
-
-  // To-do
-  // Handle view more btn
-  // JavaScript 메서드 활용하여 max-height 계산
-  // max-height toggle
-
-  // Handle load records btn
-  // loadBtn click 시
-  // workout records clear 후
-  // 얻은 records 값 활용하여 /workout에 note 추가
 }
 
 function createViewMoreBtn() {

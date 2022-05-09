@@ -271,7 +271,6 @@
 }
 
 .loader__records .board {
-  max-height: 0;
   overflow: hidden;
   transition: all var(--animation-duration) ease-in-out;
 }
