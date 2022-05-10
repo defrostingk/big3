@@ -4,7 +4,7 @@ let noteIdx = 0;
 let noteSetIdx = [];
 
 // Add note
-addNoteBtn.addEventListener('click', addNote);
+addNoteBtn.addEventListener('click', () => addNote());
 
 function addNote(loadedRecords) {
   const noteHeader = createNoteHeader(loadedRecords);
