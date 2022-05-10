@@ -288,3 +288,12 @@
   height: var(--font-medium);
   text-align: center;
 }
+
+.loader__records .note__set span {
+  width: 50px;
+  text-align: start;
+}
+
+.loader__records .note__set span:last-child {
+  text-align: end;
+}
