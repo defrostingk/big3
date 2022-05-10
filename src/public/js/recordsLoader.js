@@ -13,7 +13,7 @@ function initLoadBtn() {
   const loadBtn = document.querySelector('.load-btn');
   loadBtn.addEventListener('click', () => {
     loaderWindow.style.display = 'flex';
-    printLoadedRecords();
+    printLoaderRecords();
   });
 }
 
@@ -23,54 +23,59 @@ function initCloseBtn() {
   });
 }
 
-function printLoadedRecords() {
+function printLoaderRecords() {
+  const loaderRecords = document.querySelectorAll('.loader__records');
+  loaderRecords.forEach((loaderRecord) => {
+    loaderRecord.remove();
+  });
+
   fetch('/workout/load')
     .then((res) => res.json())
     .then((data) => {
       const recordsArr = data;
       recordsArr.reverse();
       recordsArr.forEach((records) => {
-        addLoadedRecordsAndHandleBtn(records);
+        addLoaderRecordsAndHandleBtn(records);
       });
     })
     .catch((error) => console.error(error));
 }
 
-function addLoadedRecordsAndHandleBtn(records) {
+function addLoaderRecordsAndHandleBtn(records) {
   if (records.workout.length) {
-    const loadedRecords = document.createElement('div');
-    loadedRecords.classList.add('loader__records');
+    const LoaderRecords = document.createElement('div');
+    LoaderRecords.classList.add('loader__records');
 
-    // Add loaded records
-    const loadedRecordsHeader = createLoadedRecordsHeader(records);
-    loadedRecords.append(loadedRecordsHeader);
-    const loadedBoard = createLoadedBoard(records);
-    loadedRecords.append(loadedBoard);
+    // Add Loader records
+    const LoaderRecordsHeader = createLoaderRecordsHeader(records);
+    LoaderRecords.append(LoaderRecordsHeader);
+    const LoaderBoard = createLoaderBoard(records);
+    LoaderRecords.append(LoaderBoard);
 
-    loaderContainer.append(loadedRecords);
+    loaderContainer.append(LoaderRecords);
 
     // Handle view more btn
-    const viewMoreBtn = loadedRecords.querySelector('.view-more-btn');
-    const height = loadedBoard.clientHeight;
-    loadedBoard.style.maxHeight = 0;
+    const viewMoreBtn = LoaderRecords.querySelector('.view-more-btn');
+    const height = LoaderBoard.clientHeight;
+    LoaderBoard.style.maxHeight = 0;
     viewMoreBtn.addEventListener('click', () => {
       const viewMoreBtnIcon = viewMoreBtn.querySelector('i');
       viewMoreBtnIcon.classList.toggle('more');
-      loadedBoard.style.maxHeight = viewMoreBtnIcon.classList.contains('more')
+      LoaderBoard.style.maxHeight = viewMoreBtnIcon.classList.contains('more')
         ? `${height}px`
         : '0px';
     });
 
     // Handle load btn
-    const loadRecordsBtn = loadedRecords.querySelector('.load-records-btn');
+    const loadRecordsBtn = LoaderRecords.querySelector('.load-records-btn');
     loadRecordsBtn.addEventListener('click', () => {
-      records.workout.forEach((loadedRecords) => addNote(loadedRecords));
+      records.workout.forEach((LoaderRecords) => addNote(LoaderRecords));
       closeBtn.click();
     });
   }
 }
 
-function createLoadedRecordsHeader(records) {
+function createLoaderRecordsHeader(records) {
   // Create a records header
   const recordsHeader = document.createElement('div');
   recordsHeader.classList.add('loader-records__header');
@@ -133,6 +138,7 @@ function createCategory(records) {
   let maxSets = 0;
   for (let key in categorySets) {
     if (maxSets < categorySets[key]) {
+      maxSets = categorySets[key];
       maxCategory = key;
     }
   }
@@ -155,7 +161,7 @@ function createLoadRecordsBtn() {
   return loadRecordsBtn;
 }
 
-function createLoadedBoard(records) {
+function createLoaderBoard(records) {
   const board = document.createElement('div');
   board.classList.add('board');
 
@@ -167,11 +173,11 @@ function createLoadedBoard(records) {
     note.classList.add('note');
 
     // Create and add a note header
-    const noteHeader = createLoadedNoteHeader(title, category);
+    const noteHeader = createLoaderNoteHeader(title, category);
     note.append(noteHeader);
 
     // Create and add note sets
-    const noteSets = createLoadedNoteSets(sets);
+    const noteSets = createLoaderNoteSets(sets);
     note.append(noteSets);
 
     // Add a note to board
@@ -180,7 +186,7 @@ function createLoadedBoard(records) {
   return board;
 }
 
-function createLoadedNoteHeader(title, category) {
+function createLoaderNoteHeader(title, category) {
   const noteHeader = document.createElement('note__header');
   noteHeader.classList.add('note__header');
 
@@ -200,7 +206,7 @@ function createLoadedNoteHeader(title, category) {
   return noteHeader;
 }
 
-function createLoadedNoteSets(sets) {
+function createLoaderNoteSets(sets) {
   const noteSets = document.createElement('ul');
   noteSets.classList.add('note__sets');
 
