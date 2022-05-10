@@ -12,6 +12,7 @@ header,
   width: 100%;
   background-color: var(--color-white);
   color: var(--color-pink);
+  z-index: 99;
 }
 
 .close-loader-btn,
