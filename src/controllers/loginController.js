@@ -24,6 +24,9 @@ export async function postLogin(req, res) {
   // Check user
   const login = await bcrypt.compare(password, user.password);
   if (!login) {
+    console.log(password);
+    console.log(bcrypt.hash(password, 5));
+    console.log(user.password);
     return res.status(400).render('login', {
       sectionTitle,
       errorMessage: ERROR_WRONG_PASSWORD,
