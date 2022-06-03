@@ -35,14 +35,19 @@
   margin-bottom: 80px;
 }
 
-.stopwatch__buttons {
+.stopwatch__buttons,
+.stopwatch__buttons--danger {
   max-width: var(--size-content-max-width);
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+.stopwatch__buttons {
+  margin-bottom: 50px;
+}
 
-.stopwatch__buttons button {
+.stopwatch__buttons button,
+.stopwatch__buttons--danger button {
   width: 100%;
   margin: 5px;
 }
