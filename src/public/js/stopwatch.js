@@ -60,7 +60,17 @@ startBtn.addEventListener('click', () => {
 });
 
 // Stopwatch reset
+let resetConfirm = 0;
 resetBtn.addEventListener('click', () => {
+  if (!resetConfirm) {
+    resetConfirm = 1;
+    resetBtn.innerText = 'Confirm';
+    setTimeout(() => {
+      resetConfirm = 0;
+      resetBtn.innerText = 'Reset';
+    }, 3000);
+    return;
+  }
   startStopwatch = false;
   startStopwatchPure = false;
   clearInterval(stopwatchInterval);
@@ -68,6 +78,8 @@ resetBtn.addEventListener('click', () => {
   initStartBtn();
   clearTime();
   resetBreak();
+  resetConfirm = 0;
+  resetBtn.innerText = 'Reset';
 });
 
 // Start break
